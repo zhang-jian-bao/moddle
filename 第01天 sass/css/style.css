@@ -1,0 +1,15 @@
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.box {
+  background: #ff0; }
+  .box > ul li {
+    line-height: 40px;
+    border-bottom: dashed 1px #f00; }
+    .box > ul li:nth-child(3) {
+      color: #f00;
+      font-size: 30px; }
+
+/*# sourceMappingURL=style.css.map */

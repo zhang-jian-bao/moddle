@@ -1,0 +1,42 @@
+body,h3,h4,ol,li,ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+}
+.head{
+  width: 100%;
+  height: 40px;
+  background: red;
+}
+.box{
+  height: 0;
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #ccc;
+  .con{
+    min-height:101%;
+    background: #fff;
+  }
+}
+.foot{
+  @extend .head;
+}
+.top,.bottom{
+  height: 20px;
+  width: 100%;
+  background: #ccc;
+  display: none;
+  text-align: center;
+}
+p{
+  color: blue;
+}

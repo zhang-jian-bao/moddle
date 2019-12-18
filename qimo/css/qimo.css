@@ -1,0 +1,170 @@
+body, div, span, p, h3, h4, ul, li, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.zjb-heard {
+  height: 1.54rem; }
+  .zjb-heard > img {
+    width: 6.8rem;
+    height: 0.63rem; }
+  .zjb-heard div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .zjb-heard div img {
+      width: 0.35rem;
+      height: 0.35rem; }
+      .zjb-heard div img:nth-child(3) {
+        width: 0.42rem;
+        height: 0.54rem; }
+    .zjb-heard div input {
+      width: 4.61rem;
+      height: 0.55rem;
+      font-size: 0.24rem;
+      padding-left: 0.54rem;
+      border: solid 1px #f0f0f0;
+      border-radius: 0.6rem;
+      outline-style: none;
+      background: #f0f0f0 url(../img/aa.jpg) no-repeat 0.2rem;
+      background-size: 0.22rem 0.22rem; }
+    .zjb-heard div ::-webkit-input-placeholder {
+      color: #bababa; }
+
+.zjb-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee; }
+  .zjb-box .zjb-con {
+    min-height: 101%;
+    background: #f5f7f9; }
+
+.zjb-banner {
+  height: 2.18rem; }
+  .zjb-banner img {
+    width: 6.44rem;
+    height: 2.18rem;
+    display: block;
+    margin: 0 auto; }
+
+.zjb-tu {
+  height: 7.19rem; }
+  .zjb-tu img {
+    width: 6.44rem;
+    height: 7.19rem;
+    display: block;
+    margin: 0 auto; }
+
+.zjb-nav {
+  width: 6.8rem;
+  height: 0.84rem; }
+  .zjb-nav ul {
+    display: flex;
+    align-items: center;
+    width: 6.44rem;
+    justify-content: space-around; }
+    .zjb-nav ul li {
+      font-size: 0.22rem;
+      color: #8f8f8f;
+      width: 1.1rem;
+      text-align: center; }
+      .zjb-nav ul li.active {
+        color: #000;
+        font-weight: bolder;
+        background: url(../img/cc.jpg) no-repeat bottom;
+        background-size: 0.37rem 0.04rem;
+        line-height: 0.6rem; }
+
+.zjb-content ul {
+  margin: 0 auto;
+  width: 6.44rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+  .zjb-content ul li {
+    margin-top: 0.2rem;
+    width: 2.82rem;
+    height: 5.04rem;
+    background: #fff;
+    border-radius: 0.2rem; }
+    .zjb-content ul li img {
+      width: 100%;
+      height: 3.30rem;
+      vertical-align: top; }
+    .zjb-content ul li div {
+      width: 2.64rem;
+      padding-left: 0.18rem; }
+      .zjb-content ul li div i {
+        line-height: 0.2rem;
+        font-style: normal;
+        font-size: 0.2rem;
+        padding-left: 0.18rem; }
+      .zjb-content ul li div p {
+        margin-top: 0.24rem;
+        display: flex;
+        font-size: 0.2rem;
+        color: red;
+        font-weight: bolder; }
+        .zjb-content ul li div p span {
+          display: block;
+          background: red;
+          width: 0.58rem;
+          height: 0.22rem;
+          text-align: center;
+          line-height: 0.22rem;
+          color: #fff;
+          font-size: 0.14rem;
+          margin-left: 0.16rem; }
+
+.zjb-foot {
+  height: 0.8rem; }
+  .zjb-foot ul {
+    padding: 0.2rem 0;
+    display: flex;
+    justify-content: space-around; }
+    .zjb-foot ul li {
+      font-size: 0.25rem;
+      color: #acacac;
+      width: 20%;
+      text-align: center; }
+      .zjb-foot ul li img {
+        width: 0.76rem;
+        height: 0.56rem;
+        margin-top: -0.1rem; }
+      .zjb-foot ul li.shop {
+        font-weight: bolder;
+        color: #000;
+        font-size: 0.28rem; }
+
+.sl, .xl {
+  height: 0.4rem;
+  width: 6.8rem;
+  background: #ccc;
+  text-align: center;
+  display: none; }
+
+.tiao {
+  position: absolute;
+  left: -6.80rem;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); }
+  .tiao .tt {
+    left: 0;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: #fff; }
+
+/*# sourceMappingURL=qimo.css.map */

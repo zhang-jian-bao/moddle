@@ -1,0 +1,71 @@
+原生ajax核心是 XMLHttpRequest()对象
+
+原生ajax的步骤：
+	1.对象实例化
+	2.使用open()方法进行初始化,	
+	3.使用send()向服务器发送请求
+	4.使用onreadystatechange事件等待服务器做出响应,
+	   readystate为响应码，响应码共5个
+	   0:未初始化
+	   1:向服务器发送请求
+	   2:服务器已经收到客户的请求
+	   3:服务器正在处理
+	   4：服务器准备就绪
+
+	5.获取服务器返回的文本数据
+
+
+
+原生ajax的实现
+
+  function hxcAjax(){
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.open("get|post","url",true)
+	xmlhttp.send();
+	xmlhttp.onreadystatechange=function(){
+		if(xmlhttp.readystate==4 && xmlhttp.status==200){
+			var data=xmlhttp.responseText;
+			//渲染数据到指定位置 
+		}
+	}
+}	
+
+
+二、原生ajax发送get请求
+	什么时候使用get发送请求
+	   明文，有字数限制，速度快
+	
+	  请求数据时，比如：搜索功能，
+
+	xmlhttp.open("GET","url",true)
+
+三、原生ajax发送post请求：
+	隐式提交,
+	
+	无字数限制
+	
+	比如：登录 ，留言,
+
+	php,java服务器,python,.net服务器
+
+
+
+
+
+
+
+
+ iscroll对象.scrollTo(xpos,ypos)
+
+
+xpos 是指要在窗口文档显示区左上角显示的文档的 x 坐标。
+ypos 是指要在窗口文档显示区左上角显示的文档的 y 坐标
+
+
+  mscroll.scrollTo(0,0) 是让我们的iscroll内容返回顶部
+
+
+
+
+
+

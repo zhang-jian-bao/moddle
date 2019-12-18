@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="10" id="stulist">
+			
+		</table>
+		
+	</body>
+	<script type="text/javascript">
+		function hhh(data){
+			var str="";
+			for(var i in data){
+				str+=`<tr>
+						<td>${data[i].uname}</td>
+						<td>${data[i].usex}</td>
+						<td>${data[i].uage}</td>
+					</tr>`;
+			}
+			document.getElementById("stulist").innerHTML=str;
+		}
+	</script>
+	
+	<script type="text/javascript" src="json/data.html"></script>
+</html>

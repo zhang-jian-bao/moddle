@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/mme.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/me.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">
+			<img src="img/q.png" alt="">
+		</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+				<div class="swiper-container banner">
+					<ul class="swiper-wrapper">
+						<!--<li class="swiper-slide"><img src="img/lunbo1.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo2.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo3.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo4.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo5.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo6.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo7.jpg" alt=""></li>-->
+						<!--<li class="swiper-slide"><img src="img/lunbo8.jpg" alt=""></li>-->
+					</ul>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+
+				<div class="middle">
+					<ul>
+						<!--<li><img src="img/sort1.png" alt=""><a href="">分类</a></li>-->
+						<!--<li><img src="img/sort2.png" alt=""><a href="">充值中心</a></li>-->
+						<!--<li><img src="img/sort3.png" alt=""><a href="">电气商城</a></li>-->
+						<!--<li><img src="img/sort4.png" alt=""><a href="">领劵中心</a></li>-->
+						<!--<li><img src="img/sort5.png" alt=""><a href="">国美电器</a></li>-->
+						<!--<li><img src="img/sort6.png" alt=""><a href="">金融理财</a></li>-->
+						<!--<li><img src="img/sort7.png" alt=""><a href="">国美超市</a></li>-->
+						<!--<li><img src="img/sort8.png" alt=""><a href="">海外购</a></li>-->
+						<!--<li><img src="img/sort9.png" alt=""><a href="">生活服务</a></li>-->
+						<!--<li><img src="img/sort10.png" alt=""><a href="">我的</a></li>-->
+					</ul>
+				</div>
+				<div class="tp">
+					<img src="img/guanggao.gif" alt="">
+				</div>
+				<div class="h">
+					<h2>Plus <span>头</span>
+					<span>条</span>|
+					<span>新人礼</span>首单新人礼 送158现金礼包</h2>
+				</div>
+				<div class="last">
+					<div class="t">
+						<h2><span></span>8点场 <span>00</span>:
+						<span>35</span>: <span>10</span></h2>
+						<h3>好货秒抢 &gt;</h3>
+					</div>
+					<div class="s">
+						<ul>
+							<!--<li>-->
+								<!--<img src="img/1.jpg" alt="">-->
+								<!--<b>￥54</b>-->
+								<!--<p>以抢70%</p>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<img src="img/2.jpg" alt="">-->
+								<!--<b>￥44</b>-->
+								<!--<p>以抢30%</p>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<img src="img/3.jpg" alt="">-->
+								<!--<b>￥64</b>-->
+								<!--<p>以抢20%</p>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<img src="img/4.jpg" alt="">-->
+								<!--<b>￥34</b>-->
+								<!--<p>以抢60%</p>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<img src="img/5.jpg" alt="">-->
+								<!--<b>￥84</b>-->
+								<!--<p>以抢80%</p>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<img src="img/6.jpg" alt="">-->
+								<!--<b>￥74</b>-->
+								<!--<p>以抢90%</p>-->
+							<!--</li>-->
+						</ul>
+					</div>
+				</div>
+
+				<!--滚动结束-->
+			</div>
+		</div>
+		<div class="zjb-foot">
+			<img src="img/w.png" alt="">
+		</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{});
+	var las=new IScroll('.s',{
+		scrollX:true,
+		scrollY:false
+	})
+
+	$.ajax({
+		type:"get",
+		url:"json/tsconfig.json",
+		async:true,
+		success: function (ret) {
+			var lb=ret.lunBo;
+			var str='';
+			for(var i in lb){
+				str+=`<li class="swiper-slide"><img src="${lb[i]}" alt=""></li>`;
+			}
+			$('.banner>.swiper-wrapper').html(str);
+			var lun=new Swiper('.banner',{
+				autoplay:1500,
+				speed:5000,
+				loop:true,
+				effect:'cube',
+				pagination:'.swiper-pagination',
+				paginationClickable:true,
+				nextButton:'.swiper-button-next',
+				prevButton:'.swiper-button-prev',
+				scrollbar:'.swiper-scrollbar'
+//		slidesPerView:4
+			})
+			var us=ret.uu;
+			var str1='';
+			for(var i in us){
+				str1+=`<li>
+				         <img src="${us[i].img}" alt="">
+				         <a href="">${us[i].con}</a>
+				       </li>`;
+			}
+			$(".middle>ul").html(str1);
+			var uu=ret.us;
+			var str2='';
+			for(var i in uu){
+				str2+=`<li>
+				        <img src="${uu[i].img}" alt="">
+				        <b>${uu[i].a}</b>
+				        <p>${uu[i].b}</p>
+				       </li>`;
+			}
+			$('.s>ul').html(str2);
+		}
+	})
+</script>

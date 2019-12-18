@@ -1,0 +1,30 @@
+{
+   "lunBo":["img/lunbo1.jpg",
+     "img/lunbo2.jpg",
+     "img/lunbo3.jpg",
+     "img/lunbo4.jpg",
+     "img/lunbo5.jpg",
+     "img/lunbo6.jpg",
+     "img/lunbo7.jpg",
+     "img/lunbo8.jpg"],
+  "uu":[
+    {"img":"img/sort1.png","con":"分类"},
+    {"img":"img/sort2.png","con":"充值中心"},
+    {"img":"img/sort3.png","con":"电器商城"},
+    {"img":"img/sort4.png","con":"领劵中心"},
+    {"img":"img/sort5.png","con":"国美电器"},
+    {"img":"img/sort6.png","con":"金融理财"},
+    {"img":"img/sort7.png","con":"国美超市"},
+    {"img":"img/sort8.png","con":"海外购"},
+    {"img":"img/sort9.png","con":"生活服务"},
+    {"img":"img/sort10.png","con":"我的"}
+  ],
+  "us":[
+    {"img":"img/1.jpg","a":"￥54","b":"以抢70%"},
+    {"img":"img/2.jpg","a":"￥44","b":"以抢60%"},
+    {"img":"img/3.jpg","a":"￥34","b":"以抢50%"},
+    {"img":"img/4.jpg","a":"￥24","b":"以抢40%"},
+    {"img":"img/5.jpg","a":"￥64","b":"以抢30%"},
+    {"img":"img/6.jpg","a":"￥74","b":"以抢20%"}
+  ]
+}

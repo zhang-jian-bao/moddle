@@ -1,0 +1,82 @@
+body, div, span, p, ul, li, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.zjb-heard, .zjb-foot {
+  text-align: center;
+  height: 0.8rem;
+  background: greenyellow; }
+
+nav {
+  width: 5rem;
+  overflow: hidden;
+  background: red; }
+  nav ul {
+    width: 10rem;
+    display: flex;
+    justify-content: space-around; }
+    nav ul li {
+      width: 0.6rem;
+      text-align: center; }
+      nav ul li.active {
+        background: orange;
+        font-weight: bold; }
+
+.zjb-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee; }
+  .zjb-box .zjb-con {
+    min-height: 101%;
+    background: #fff; }
+
+.nv {
+  margin: 0 auto;
+  padding: 0.2rem 0;
+  width: 5rem;
+  height: 4rem;
+  background: pink;
+  font-weight: bold;
+  text-align: center; }
+
+.zjb-foot ul {
+  display: flex;
+  justify-content: space-around; }
+  .zjb-foot ul li {
+    width: 20%; }
+    .zjb-foot ul li img {
+      width: 0.8rem;
+      height: 0.8rem; }
+
+.top, .bottom {
+  text-align: center;
+  height: 0.4rem;
+  background: yellow;
+  display: none; }
+
+.er, .san {
+  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
+  font-size: 0.2rem;
+  background: yellowgreen;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 0.3rem; }
+
+.san {
+  background: yellow; }
+
+/*# sourceMappingURL=aaaa.css.map */

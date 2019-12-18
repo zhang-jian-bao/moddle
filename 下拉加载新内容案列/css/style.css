@@ -1,0 +1,45 @@
+body {
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+body, ul, ol, li, dl, dt, dd, p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+a:link {
+  text-decoration: none;
+  color: #000000; }
+
+body, html {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.hxc-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden; }
+  .hxc-box .hxc-content {
+    min-height: 101%;
+    background: #ffc; }
+    .hxc-box .hxc-content ul li {
+      line-height: 0.4rem;
+      border-bottom: dashed 1px #ccc; }
+
+.hxc-header, .hxc-footer {
+  height: 0.5rem;
+  background: #000000;
+  color: #fff;
+  text-align: center;
+  line-height: 0.5rem; }
+
+.hxc-refer, .hxc-brefer {
+  line-height: 0.2rem;
+  background: #ccc;
+  text-align: center;
+  font-size: 0.12rem;
+  text-align: center;
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */

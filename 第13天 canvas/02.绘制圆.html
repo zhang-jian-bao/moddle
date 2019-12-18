@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<canvas id="mm" width="800" height="400"></canvas>
+		
+		<script>
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			    ctx.beginPath()
+			    ctx.fillStyle="red";
+			    ctx.strokeStyle="#0000AA"
+			    ctx.arc(400,200,200,0,Math.PI*2)
+			    ctx.stroke();
+			    ctx.fill()
+		</script>
+
+	</body>
+</html>

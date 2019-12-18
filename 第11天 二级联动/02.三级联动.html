@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select id="sheng"></select>
+		<select id="city"></select>
+		<select id="xian"></select>
+		
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				type:"get",
+				url:"json/data.json",
+				async:true,
+				success:function(ret){
+					//写入省份
+					var str="<option>请选择省份</option>";
+					for(var x in ret){
+						str+=`<option>${ret[x].sname}</option>`;
+					}
+					$("#sheng").html(str);
+					
+					//当省份改变时，写入相对应城市
+					$("#sheng").change(function(){
+						$("#xian").empty();
+						
+						var i=$(this)[0].selectedIndex-1; //注意这里要把jQuery对象转换为了js对象
+						var city=ret[i].city; //获取对应省份的city数据
+						var str="<option>请选择城市</option>";
+						for(var y in city){
+							str+=`<option>${city[y].cname}</option>`;
+							
+						}
+						$("#city").html(str);
+						
+						//当城市发生改变时，写入对应的区县
+						$("#city").change(function(){
+							var k=$(this)[0].selectedIndex-1;//获取城市索引
+							var xian=city[k].xian;
+							
+							var str="<option>请选择区县</option>";
+							for(var z in xian){
+								str+=`<option>${xian[z]}</option>`;
+							}
+							
+							$("#xian").html(str);
+						})
+						
+					})
+					
+					
+				}
+			});
+			
+		})
+	</script>
+</html>

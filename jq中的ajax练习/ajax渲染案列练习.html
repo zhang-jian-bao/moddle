@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<body>
+<div class="header">
+    <img src="img/ilp_09.jpg"/>
+    <div> <img src="img/ilp_03.jpg"/></div>
+    <img src="img/ilp_06.jpg" />
+</div>
+<div class="box">
+    <div class="content">
+        <!--滚动内容开始-->
+        <div class="swiper-container" id="hxc-banner">
+            <div class="swiper-wrapper">
+            </div>
+        </div>
+
+        <div class="hxc-nav">
+            <ul>
+
+            </ul>
+
+        </div>
+
+
+
+
+
+        <!--滚动内容结束-->
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    document.addEventListener("touchmove",function(ev){
+        ev.preventDefault()
+    },{passive:false}) //阻止移动端自带的touchmove事件
+    var mscroll=new IScroll(".box",{})
+
+
+
+
+    $.ajax({
+        type:"get",
+        url:"json/data.json",
+        async:true,
+        success:function(ret){
+            var banner=ret.banner;
+            var str="";
+            for(var i in banner){
+                str+=`<div class="swiper-slide"><img src="${banner[i]}"/></div>`;
+            }
+            $("#hxc-banner .swiper-wrapper").html(str);
+
+            var hxcBanner=new Swiper("#hxc-banner",{
+                autoplay:1500
+            })
+            //渲染导航
+            var nav=ret.nav;
+            var cstr="";
+            for(var k in nav){
+                cstr+=`<li><img src="${nav[k].img}"><a href="#">${nav[k].tt}</a></li>`;
+            }
+
+            $(".hxc-nav ul").html(cstr);
+
+        }
+    });
+</script>
+</html>

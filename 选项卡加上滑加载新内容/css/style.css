@@ -1,0 +1,68 @@
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+body {
+  font-size: 0.24rem;
+  line-height: 0.4rem; }
+
+.hxc-header, .hxc-footer {
+  height: 0.7rem;
+  font-size: 0.2rem;
+  text-align: center;
+  background: #000000;
+  color: #fff;
+  line-height: 0.7rem; }
+
+.hxc-nav {
+  height: 0.7rem;
+  background: #EEEEEE; }
+  .hxc-nav ul {
+    display: flex;
+    height: 0.7rem;
+    align-items: center; }
+    .hxc-nav ul li {
+      width: 25%;
+      text-align: center; }
+      .hxc-nav ul li.active {
+        color: #e00; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+#hxc-page {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden; }
+  #hxc-page .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    width: 6.4rem; }
+    #hxc-page .swiper-slide h1 {
+      width: 6.4rem;
+      line-height: 1rem;
+      font-size: 0.48rem;
+      text-align: center;
+      border-bottom: solid 1px #ccc; }
+
+.hxc-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden; }
+  .hxc-box .hxc-content {
+    width: 6.4rem;
+    min-height: 101%; }
+    .hxc-box .hxc-content ul {
+      padding: 0.1rem; }
+      .hxc-box .hxc-content ul li {
+        line-height: 0.7rem;
+        height: 0.7rem;
+        border-bottom: dashed 1px #ccc; }
+
+/*# sourceMappingURL=style.css.map */

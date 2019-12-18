@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="top"><img src="img/ppxw_01.jpg"/></div>
+		<div class="header">
+			<img src="img/logo.jpg" />
+			<div class="nav">
+				<ul>
+					<li>新闻</li>
+					<li>头条</li>
+					<li class="active">专题</li>
+					<li>视频</li>
+					<li>推贱</li>
+					<li>时事</li>
+					<li>政治</li>
+					<li>军事</li>
+					<li>财经</li>
+					<li>八卦</li>
+				</ul>
+			</div>
+			<img src="img/ppxw_04.jpg">
+		</div>
+		<div class="box">
+			<div class="content">
+				<!--滚动开始-->
+
+				<div class="swiper-container" id="page" >
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							
+							<div class="swiper-container" id="hxc-banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/ppxw_08.jpg"/></div>
+						<div class="swiper-slide"><img src="img/ppxw_08.jpg"/></div>
+						<div class="swiper-slide"><img src="img/ppxw_08.jpg"/></div>
+					</div>
+				</div>
+				
+				<!--新闻列表开始-->
+				<div class="hxc-news">
+					<ul>
+						
+					
+					
+					</ul>
+					
+					
+					
+				</div>
+							
+			</div>
+					<div class="swiper-slide">这是第2页</div>
+						<div class="swiper-slide">这是第3页</div>
+						<div class="swiper-slide">这是第4页</div>
+						<div class="swiper-slide">这是第5页</div>
+					</div>
+				</div>
+				
+				<!--滚动结束-->
+				
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li class="active"><img src="img/ppxw_22.jpg"/><a href="#">首页</a></li>
+				<li><img src="img/ppxw_24.jpg"/><a href="#">推荐</a></li>
+				<li><img src="img/ppxw_26.jpg"/><a href="#">视频</a></li>
+				<li><img src="img/ppxw_28.jpg"/><a href="#">娱乐</a></li>
+				<li><img src="img/ppxw_31.jpg"/><a href="#">头条</a></li>
+			</ul>
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false}) //阻止移动端自带的touchmove事件
+		var mscroll=new IScroll(".box",{})
+		//导航条滑动初始化
+		var hxcNav=new IScroll(".nav",{
+			scrollX:true,
+			scrollY:false
+		})
+		
+		//ajax数据渲染
+		$.get("json/data.json",{},function(ret){
+			var news=ret.news;
+			var str=""
+			for(var i in news){
+				str+=`<li>
+							<img src="${news[i].img}" />
+							<div>
+								<h3>${news[i].title}</h3>
+								<p>
+									<span>${news[i].fm}</span>
+									<i>${news[i].ctime}</i>
+									<b>${news[i].pnum}</b>
+									<a href="#">推贱</a>
+								</p>
+							</div>
+							
+						</li>`;
+			}
+			
+			$(".hxc-news ul").html(str);
+			mscroll.refresh();//刷新iscroll
+			
+		},"json")
+		
+		
+		//导航条点击变化
+		$(".nav ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active")
+		})
+		
+		//轮播初始化
+		var hxcBanner=new Swiper("#hxc-banner",{
+			autoplay:1500
+		})
+		
+		var page=new Swiper("#page",{
+			onSlideChangeEnd:function(swiper){
+				var k=swiper.activeIndex;
+				$(".footer ul li").eq(k).addClass("active").siblings().removeClass("active")
+			}
+		})
+		
+		$(".footer ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			var i=$(this).index()
+			page.slideTo(i)
+		})
+	</script>
+</html>

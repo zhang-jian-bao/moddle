@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<ul>
+			
+		</ul>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				type:"get",
+				url:"json/aaa.json",
+				async:true,
+				success:function(ret){
+					var str="";
+					for(var i in ret){
+						str+=`<li>${ret[i]}</li>`;
+						
+					}
+					
+					$("ul").html(str);
+				}
+			});
+			
+			
+		})
+	</script>
+</html>

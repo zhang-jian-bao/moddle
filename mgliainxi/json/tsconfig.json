@@ -1,0 +1,44 @@
+{
+"us":[
+  {"img":"img/3zhe.jpg","aa":"3折"},
+  {"img":"img/4zhe.jpg","aa":"4折"},
+  {"img":"img/5zhe.jpg","aa":"5折"},
+  {"img":"img/6zhe.jpg","aa":"6折"},
+  {"img":"img/7zhe.jpg","aa":"7折"},
+  {"img":"img/good.jpg","aa":"食品"},
+  {"img":"img/jiu.jpg","aa":"酒类"},
+  {"img":"img/yinliao.jpg","aa":"饮料"},
+  {"img":"img/gwc.jpg","aa":"母婴用品"},
+  {"img":"img/meizhuang.jpg","aa":"美妆日化"}
+
+],
+  "nac":["推荐","食品生鲜","酒水饮料",
+    "家用电器","家具厨具","美的冰箱",
+    "床上用品","把装逼啦"],
+  "nr":[
+    {"imga":"img/1.jpg","imgb":"img/conten1.jpg",
+    "a":"【巨惠专区】易捷八百泉有机米长粒香5Kg",
+      "b":"￥120","c":"￥42",
+      "d":"易捷币抵扣后到手价"},
+    {"imga":"img/2.jpg","imgb":"img/content2.jpg",
+      "a":"【巨惠专区】福临门金粳稻5KG",
+      "b":"￥35.9","c":"￥14.01",
+      "d":"易捷币抵扣后到手价"},
+    {"imga":"img/3.jpg","imgb":"img/con3.jpg",
+      "a":"【巨惠专区】金龙鱼生态稻5kg",
+      "b":"￥28.9","c":"￥17.9",
+      "d":"易捷币抵扣后到手价"},
+    {"imga":"img/1.jpg","imgb":"img/conten1.jpg",
+      "a":"【巨惠专区】易捷八百泉有机米长粒香5Kg",
+      "b":"￥120","c":"￥42",
+      "d":"易捷币抵扣后到手价"},
+    {"imga":"img/2.jpg","imgb":"img/content2.jpg",
+      "a":"【巨惠专区】福临门金粳稻5KG",
+      "b":"￥35.9","c":"￥14.01",
+      "d":"易捷币抵扣后到手价"},
+    {"imga":"img/3.jpg","imgb":"img/con3.jpg",
+      "a":"【巨惠专区】金龙鱼生态稻5kg",
+      "b":"￥28.9","c":"￥17.9",
+      "d":"易捷币抵扣后到手价"}
+  ]
+}

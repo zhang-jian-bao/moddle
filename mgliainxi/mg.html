@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/mg.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/mg.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">
+			<img src="img/qqq.png" alt="">
+			<div class="top">
+				<img src="img/icon_03.jpg" alt="">
+				<input type="text" placeholder="请输入搜索的商品">
+				<img src="img/qq.png" alt="">
+			</div>
+			<nav>
+				<div>
+				<ul class="nn">
+					<li class="active">推荐</li>
+					<li>食品生鲜</li>
+					<li>酒水饮料</li>
+					<li>家用电器</li>
+					<li>家具厨具</li>
+					<li>美的冰箱</li>
+					<li>床上用品</li>
+					<li>把装逼啦</li>
+				</ul>
+				</div>
+				<img src="img/down.jpg" alt="">
+			</nav>
+		</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+				<!--轮播图布局-->
+				<div class="swiper-container banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/banner.jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/banner.jpg" alt=""></div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+
+				<div class="navul">
+					<div class="swiper-container navuu">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<ul class="ua">
+									<!--<li><img src="img/3zhe.jpg" alt=""><a href="">3折</a></li>-->
+									<!--<li><img src="img/4zhe.jpg" alt=""><a href="">4折</a></li>-->
+									<!--<li><img src="img/5zhe.jpg" alt=""><a href="">5折</a></li>-->
+									<!--<li><img src="img/6zhe.jpg" alt=""><a href="">6折</a></li>-->
+									<!--<li><img src="img/7zhe.jpg" alt=""><a href="">7折</a></li>-->
+									<!--<li><img src="img/good.jpg" alt=""><a href="">食品</a></li>-->
+									<!--<li><img src="img/jiu.jpg" alt=""><a href="">酒类</a></li>-->
+									<!--<li><img src="img/yinliao.jpg" alt=""><a href="">饮料</a></li>-->
+									<!--<li><img src="img/gwc.jpg" alt=""><a href="">母婴用品</a></li>-->
+									<!--<li><img src="img/meizhuang.jpg" alt=""><a href="">美妆日化</a></li>-->
+								</ul>
+							</div>
+							<div class="swiper-slide">
+								<ul class="ub"></ul>
+							</div>
+							<div class="swiper-slide">
+								<ul class="ud"></ul>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				
+				<div class="cc">
+					<img src="img/ee.png" alt="">
+				</div>
+				<div class="ne">
+					<ul>
+						<!--<li>-->
+							<!--<div class="left">-->
+								<!--<img src="img/1.jpg" alt="">-->
+								<!--<img src="img/conten1.jpg" alt="">-->
+							<!--</div>-->
+							<!--<div class="right">-->
+								<!--<h3>【巨惠专区】易捷八百泉有机米长粒香5Kg</h3>-->
+								<!--<p>￥120</p>-->
+								<!--<strong>￥42 <span>易捷币抵扣后到手价</span></strong>-->
+							<!--</div>-->
+						<!--</li>-->
+					</ul>
+				</div>
+
+				<!--滚动结束-->
+			</div>
+		</div>
+		<div class="zjb-foot">
+			<ul>
+				<li><img src="img/icon_10.jpg" alt=""><a href="">首页</a></li>
+				<li><img src="img/icon_12.jpg" alt=""><a href="">分类</a></li>
+				<li><img src="img/icon_07.jpg" alt=""></li>
+				<li><img src="img/icon_15.jpg" alt=""><a href="">购物车</a></li>
+				<li><img src="img/icon_17.jpg" alt=""><a href="">我的</a></li>
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{})
+	//导航栏左右滚动
+	var nav=new IScroll('nav>div',{
+		scrollX:true,
+		scrollY:false
+	})
+	/*轮播图布局开始*/
+	var banner=new Swiper(".banner",{
+		autoplay:1500,
+		speed:500,
+//		loop:true,/*有小圆点按钮，加循环，按钮无效*/
+		pagination:'.swiper-pagination',
+		paginationClickable:true
+	})
+    var navuu=new Swiper('.navuu',{
+		autoplay:1500,
+		speed:500,
+		pagination:'.swiper-pagination',
+		paginationClickable:true
+	})
+	//ajax渲染
+	$.get("json/tsconfig.json",{}, function (ret) {
+		var cc=ret.us;
+		var str='';
+		for(var i in cc){
+			str+=`<li>
+			      <img src="${cc[i].img}" alt="">
+			      <a href="">${cc[i].aa}</a>
+			      </li>`
+		}
+		$('.ua').html(str);
+		$('.ub').html(str);
+		$('.ud').html(str);
+		//渲染导航条
+//		var na=ret.nac;
+//		var str1='';
+//		for(var k in na){
+//			if(k==0){
+//				str1+=`<li class='active'>${na[k]}</li>`;
+//			}else{
+//				str1+=`<li'>${na[k]}</li>`;
+//			}
+//		}
+//		$('.nn').html(str1);
+		//渲染内容
+		var nn=ret.nr;
+		var str2='';
+		for(var c in nn){
+			str2+=`
+			<li>
+				<div class="left">
+					<img src="${nn[c].imga}" alt="">
+					<img src="${nn[c].imgb}" alt="">
+				</div>
+				<div class="right">
+					<h3>${nn[c].a}</h3>
+					<p>${nn[c].b}</p>
+					<strong>${nn[c].c}<span>${nn[c].d}</span></strong>
+				</div>
+			</li> `;
+		}
+		$('.ne>ul').html(str2);
+	})
+
+</script>

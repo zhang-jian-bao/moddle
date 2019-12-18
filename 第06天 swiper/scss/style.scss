@@ -1,0 +1,39 @@
+body,ul,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    font-size: 0.2rem;
+    line-height: 0.3rem;
+}
+#hxc-banner{
+    height: 2rem;
+    .swiper-slide{
+        background: #0000CC;
+        font-size: 0.72rem;
+        text-align: center;
+        line-height: 2rem;
+        color: #fff;
+        &:nth-child(2n){
+            background: #008000;
+        }
+        &:nth-child(3n){
+            background: #990000;
+        }
+    }
+    .swiper-pagination{
+        width: 1.5rem;
+        left:auto;
+        right:0;
+        color: #fff;
+        line-height: 0.3rem;
+      
+        bottom: 0;
+    }
+    .swiper-pagination-bullet{
+        width: 0.3rem;
+        border-radius: 0;
+        opacity: 1;
+    }
+}

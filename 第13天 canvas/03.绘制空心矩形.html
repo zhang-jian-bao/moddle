@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mm{
+				border:solid 1px #000066
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mm" width="800" height="400"></canvas>
+		<script type="text/javascript">
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			ctx.strokeStyle="#0000AA";
+			ctx.fillStyle="#cc0"
+			ctx.strokeRect(100,100,400,200)
+			ctx.fillRect(100,100,400,200)
+		</script>
+	</body>
+</html>

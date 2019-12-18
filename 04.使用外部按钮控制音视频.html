@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video id="mm" width="800" height="390" poster="vv/ddd.jpg">
+			<source src="vv/aaaa.mp4" type="video/mp4"></source>
+			
+			当前浏览器不支持 video直接播放，点击这里下载视频： <a href="vv/aaaa.mp4">下载视频</a>
+		</video>
+		<div>
+			<button id="mplay">播放</button>
+			<button id="mpause">暂停</button>
+			<button id="mmuted">静音</button>
+			<button id="mopen">打开声音</button>
+			<button id="mjian">减小音量</button>
+			<button id="mjia">加大音量</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var mm=document.getElementById("mm");
+		document.getElementById("mplay").onclick=function(){
+			mm.play();
+		}
+		document.getElementById("mpause").onclick=function(){
+			mm.pause();
+		}
+		document.getElementById("mmuted").onclick=function(){
+			mm.muted=true;
+		}
+		document.getElementById("mopen").onclick=function(){
+			mm.muted=false
+		}
+		document.getElementById("mjian").onclick=function(){
+			//var v=mm.volume;
+			mm.volume-=0.1
+		}
+		document.getElementById("mjia").onclick=function(){
+			mm.volume+=0.1
+		}
+	</script>
+</html>

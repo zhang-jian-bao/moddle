@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="cars">
+			
+		</ul>
+	</body>
+	
+	<script type="text/javascript">
+		var car=["宝马","奔驰","奥迪","烂脖鸡泥","奥拓","凤凰","飞鸽"];
+		var str="";
+		for(var i in car){
+			//str+="<li>"+car[i]+"</li>";
+			str+=`<li 
+			class="cli">${car[i]}</li>`;
+		}
+		document.getElementById("cars").innerHTML=str;
+	</script>
+</html>

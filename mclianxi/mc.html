@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/mc.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/mc.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">
+			<img src="img/cc%20(1).jpg" alt="">
+			<img src="img/cc%20(2).jpg" alt="">
+		</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+				<div class="swiper-container banner">
+					<div class="swiper-wrapper">
+						<!--<div class="swiper-slide"><img src="img/59c4b321N78d15143.jpg!q50.jpg.webp" alt=""></div>-->
+						<!--<div class="swiper-slide"><img src="img/59c4d7acN5a679d21.jpg!q50.jpg.webp" alt=""></div>-->
+						<!--<div class="swiper-slide"><img src="img/59c4d7c6N28184991.jpg!q50.jpg.webp" alt=""></div>-->
+						<!--<div class="swiper-slide"><img src="img/59c4b321N78d15143.jpg!q50.jpg.webp" alt=""></div>-->
+						<!--<div class="swiper-slide"><img src="img/59c4d7acN5a679d21.jpg!q50.jpg.webp" alt=""></div>-->
+						<!--<div class="swiper-slide"><img src="img/59c4d7c6N28184991.jpg!q50.jpg.webp" alt=""></div>-->
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="tp">
+
+				</div>
+				<div class="uu">
+					<ul>
+						<!--<li><img src="img/59ad2b94N0bc521a8.jpg!q50.jpg.webp" alt=""><a href="">粮油调味</a></li>-->
+						<!--<li><img src="img/59ad2bdeN272b6d25.jpg!q50.jpg.webp" alt=""><a href="">坚果蜜饯</a></li>-->
+						<!--<li><img src="img/59ad2b36N4c885de6.jpg!q50.jpg.webp" alt=""><a href="">家庭清洁</a></li>-->
+						<!--<li><img src="img/59ad2b35N3ce670ba.jpg!q50.jpg.webp" alt=""><a href="">牛奶水饮</a></li>-->
+						<!--<li><img src="img/59ad2bacNa5fcde5a.jpg!q50.jpg.webp" alt=""><a href="">个人护理</a></li>-->
+						<!--<li><img src="img/59ad1f18N4db7f970.jpg!q50.jpg.webp" alt=""><a href="">京东到家</a></li>-->
+						<!--<li><img src="img/59ad1f13N957d4ec4.png.webp" alt=""><a href="">山姆店</a></li>-->
+						<!--<li><img src="img/59ad1f33N1e798292.jpg!q50.jpg.webp" alt="">沃尔玛<a href=""></a></li>-->
+						<!--<li><img src="img/59ad1f3fNf4b76158.jpg!q50.jpg.webp" alt="">时令生鲜<a href=""></a></li>-->
+						<!--<li><img src="img/59ad1f49Na8dd1e48.jpg!q50.jpg.webp" alt="">全部分类<a href=""></a></li>-->
+					</ul>
+				</div>
+				<div class="last">
+					<img src="img/599fccc7N1591a324.jpg!q50.jpg.webp" alt="">
+				</div>
+				<!--滚动结束-->
+			</div>
+		</div>
+		<div class="zjb-foot">
+			<ul>
+				<!--<li><img src="img/599e399eN41054974.png" alt=""></li>-->
+				<!--<li><img src="img/599e3a26N1c235b2f.png" alt=""></li>-->
+				<!--<li><img src="img/599e39b6Nab7cc29a.png" alt=""></li>-->
+				<!--<li><img src="img/599e39f8N2ebd8965.png" alt=""></li>-->
+				<!--<li><img src="img/599e3a12N076af3e4.png" alt=""></li>-->
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{})
+	$.ajax({
+		type:'get',
+		url:'json/tsconfig.json',
+		async:true,
+		success: function (ret) {
+			var b=ret.lunBo;
+			var str='';
+			for(var i in b){
+				str+=`<div class="swiper-slide"><img src="${b[i]}" alt=""></div>`;
+			}
+			$('.banner .swiper-wrapper').html(str);
+			var zjbBa=new Swiper('.banner',{
+				autoplay:1500,
+				speed:4000,
+				loop:true,
+				effect:'flip',
+				pagination:".swiper-pagination",
+				paginationClickable:true,
+
+			})
+			var us=ret.uc;
+			var str1='';
+			for(var i in us){
+				str1+=`<li><img src="${us[i].img}" alt="">
+				<a href="">${us[i].aa}</a></li>`;
+			}
+			$('.uu>ul').html(str1);
+			var ss=ret.foot;
+			var str2='';
+			for(var i in ss){
+				str2+=`<li>
+				        <img src="${ss[i]}" alt="">
+				       </li>`;
+			}
+			$('.zjb-foot>ul').html(str2);
+		}
+	})
+</script>

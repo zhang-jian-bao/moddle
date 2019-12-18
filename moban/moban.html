@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/moban.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/rem%20.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">头部</div>
+		<div class="zjb-box">
+			<div class="zjb-con">内容</div>
+		</div>
+		<div class="zjb-foot">尾部</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{})
+</script>

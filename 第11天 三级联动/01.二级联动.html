@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="sheng">
+			
+		</select>
+		<select id="city">
+			
+		</select>
+	</body>
+	<script type="text/javascript">
+		var data=[
+				{sname:"北京市",info:["海淀区","丰台区","东城区","西城区","朝阳区"]}
+				,{sname:"河南省",info:["郑州","邓州","商丘","南阳","信阳"]}
+				,{sname:"山东省",info:["济南市","聊城","青岛","济宁","菏泽"]}
+				];
+		var str="<option>请选择省份</option>";
+		for(var i in data){
+			str+=`<option>${data[i].sname}</option>`;
+		}
+		document.getElementById("sheng").innerHTML=str;
+		
+		document.getElementById("sheng").onchange=function(){
+			var k=this.selectedIndex-1;//获取被选中option索引
+			var citydata=data[k].info;
+			var str="<option>请选择城市</option>";
+			for(var i in citydata){
+				str+=`<option>${citydata[i]}</option>`;
+			}
+			document.getElementById("city").innerHTML=str;
+		}
+	</script>
+</html>

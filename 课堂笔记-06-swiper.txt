@@ -1,0 +1,80 @@
+一、什么是swiper?它的作用是什么？
+	swiper是开源的，免费的，轻便的js插件，使用swiper可以快速的制作移动具有滑屏功能的轮播特效
+
+二、swiper的文件
+	1.swiper.min.css 
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	2.swiper.min.js
+	 <script src="js/swiper.min.js"></script>
+三、swiper初始化
+	1.html代码部分
+		<div class="swiper-container" id="hxc-banner">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+			</div>
+		</div>
+	2.js代码部分
+		<script>
+			var hxcBanner=new Swiper("#hxc-banner",{
+				autoplay:1500,//自动播放的时间为毫秒
+				speed:200, //切换时间，也就是从A到B过渡的时间
+				loop:true,//是否循环
+			})
+
+		</script>
+四,swiper的分页器 
+	1.html代码部分：container的子元素
+		<div class="swiper-pagination"></div>
+
+	2.js代码
+		对象的参数：
+		pagination:".swiper-pagination"
+
+
+五、swiper上一页，下页的方法
+	1.html代码部分
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	2.js代码部分
+		nextButton:".swiper-button-next",
+		prevButton:".swiper-button-prev"
+
+六、swiper 切换效果
+	主要js的参数
+	effect:
+		"slide"  滑动效果
+		"fade"   淡入淡出效果
+		"cube"   3d盒子
+		"flip"   3d翻转
+		"coverflow" 3d流
+		
+七、swiper滚动条
+
+	1.html代码部分
+		<div class="swiper-scrollbar"></div>
+	2.js代码部分
+		scrollbar:".swiper-scrollbar"		
+
+八、swiper参数总结：
+	autoplay:1500,//自动轮播,单位为毫秒
+	speed:500, //切换时间，过度时间
+	loop:true|false，是否循环轮播
+	pagination:".swiper-pagination" ,//分页器
+	paginationClickable:true|false ,//分页器是否允许点击
+	nextButton:".swiper-button-next",//下一页
+	prevButton:".swiper-button-prev",//上一页
+	scrollbar:".swiper-scrollbar",  //滚动条
+	slidesPerView:5,        //当时显示5条轮播项
+	effect:"silde"     ,     //切换效果
+	          "cube",//3d盒子
+                           "flip"//3d流
+                              “coverflow”//3d效果
+                             “fade”//淡入   
+
+
+
+
+
+	

@@ -1,0 +1,97 @@
+body, ul, ol, dl, dt, dd, li, p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+body {
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+header {
+  height: 0.7rem;
+  background: #000000;
+  text-align: center;
+  color: #fff;
+  font-size: 0.16rem;
+  line-height: 0.7rem; }
+
+nav {
+  height: 0.7rem;
+  background: #f0f0f0;
+  border-bottom: solid 1px #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  nav div {
+    width: 5.4rem;
+    overflow: hidden; }
+    nav div ul {
+      width: 8rem;
+      display: flex; }
+      nav div ul li {
+        width: 1rem;
+        text-align: center;
+        line-height: 0.7rem; }
+  nav h3 {
+    width: 0.8rem;
+    text-align: center; }
+
+#hxc-banner {
+  height: 2.2rem; }
+  #hxc-banner img {
+    width: 6.4rem;
+    height: 2.2rem; }
+  #hxc-banner p {
+    position: absolute;
+    height: 0.6rem;
+    background: linear-gradient(rgba(0, 0, 0, 0), black, black);
+    width: 100%;
+    bottom: 0;
+    color: #fff;
+    line-height: 0.6rem;
+    text-align: center; }
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.hxc-tab {
+  height: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; }
+  .hxc-tab dt {
+    height: 0.7rem;
+    background: #f0f0f0; }
+    .hxc-tab dt ul {
+      display: flex; }
+      .hxc-tab dt ul li {
+        width: 1.5rem;
+        line-height: 0.7rem;
+        text-align: center; }
+        .hxc-tab dt ul li.active {
+          color: #e00;
+          background: #00FFCC; }
+  .hxc-tab dd {
+    height: 0;
+    flex-grow: 1; }
+
+#hxc-page {
+  height: 100%; }
+  #hxc-page .hxc-content {
+    min-height: 101%; }
+    #hxc-page .hxc-content ul {
+      padding: 0.2rem; }
+      #hxc-page .hxc-content ul li {
+        line-height: 0.8rem;
+        border-bottom: dashed 1px #ccc; }
+
+.hxc-refer, .hxc-brefer, .hxc-brefer2, .hxc-refer2 {
+  height: 0.3rem;
+  background: #ccc;
+  text-align: center;
+  display: none;
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

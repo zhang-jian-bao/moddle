@@ -1,0 +1,45 @@
+一、jquery的ajax
+	1.$.ajax,可以使用get或post方法
+
+	 $.ajax({
+		type:"get|post",
+		url:"请求的url路径",
+		async:true|false,
+		success:function(ret){
+			//ret为从服务器返回的数据
+		},
+		error:function(msg){
+			//ajax不成功返回的内容
+		}
+	})
+
+	2.$.get(),只能get方式请求
+	
+	  $.get("url",{uu:"李宝裤",sex:"男"},function(ret){
+
+	   },"json")
+
+		比如:url值为 http://www.abc.com/aaa.php
+		     http://www.abc.com/aaa.php?uu=李宝裤&sex=男
+
+
+	3.$.post(),只能post方式请求
+
+		$.post("url",{uu:"李宝裤",sex:"男"},function(ret){
+			//js代码
+	       },"json")
+
+ 	4.$.getJSON
+
+	   $.getJSON("url",function(ret){
+
+	   })
+
+
+
+
+
+
+
+
+

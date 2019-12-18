@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select id="sheng"></select>
+		<select id="city"></select>
+		<select id="xian"></select>
+	</body>
+	<script type="text/javascript">
+		$.get("data/data.json",{},function(data){
+			
+			//写入省份
+			var str="<option>请选择省份</option>";
+			for(var i in data){
+			str+=`<option>${data[i].sname}</option>`;
+			}
+			$("#sheng").html(str);
+			
+			//当选择省份时，写入相对应城市
+			var k;
+			$("#sheng").change(function(){
+				
+				 k=$(this)[0].selectedIndex-1;//获取被选省份的索引值
+				var citydata=data[k].city;
+				var str="<option>请选择城市</option>";
+				for(var i in citydata){
+					str+=`<option>${citydata[i].cname}</option>`
+				}
+				$("#city").html(str);
+				$("#xian").html("");
+			})
+			
+			//当改变城市时，写入相对应县区
+			$("#city").change(function(){
+				var m=$(this)[0].selectedIndex-1;
+				var xiandata=data[k].city[m].xian;
+				var str="<option>请选择县</option>";
+				for(var i in xiandata){
+					str+=`<option>${xiandata[i]}</option>`
+				}
+				$("#xian").html(str);
+			})
+		},"json")
+		
+		
+	</script>
+</html>

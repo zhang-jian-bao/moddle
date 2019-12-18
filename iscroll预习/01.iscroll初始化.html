@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.hxcBox{
+				height: 300px;
+				
+				border:solid 1px #0000AA;
+				overflow: hidden;
+			}
+			.hxcContent{
+				height: 301px;
+				width: 101%;
+				background: #ff0;
+			}
+		</style>
+		
+	</head>
+	<script src="js/iscroll-probe.js"></script>
+	<body>
+		<div class="hxcBox">
+			<div class="hxcContent">
+				滚动内容
+			</div>
+		</div>
+	</body>
+	<script>
+	document.addEventListener("touchmove",function(event){
+		event.preventDefault();
+	},{passive:false}); //阻止浏览器自带的原生touch事件
+		var hxciscroll=new IScroll(".hxcBox",{
+			scrollX:true,
+		})
+	</script>
+</html>

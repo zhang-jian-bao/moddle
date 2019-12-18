@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>二级联动练习</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+          <select name="" id="sheng"></select>
+          <select name="" id="shi"></select>
+          <select name="" id="xian"></select>
+          <select name="" id="xiang"></select>
+          <select name="" id="cun"></select>
+
+</body>
+</html>
+       <script>
+           $(function () {
+               $.ajax({
+                   type:'get',
+                   url:'josn/package.json',
+                   aynsc:true,
+                   success: function (ret) {
+                       var str="<option>请输入省份</option>";
+                       for(var i in ret){
+                           str+=`<option>${ret[i].sname}</option>`
+                       }
+                       $('#sheng').html(str);
+                       $('#sheng').change(function () {
+                           var i=$(this)[0].selectedIndex-1;
+                           var s=ret[i].city;
+                           var str="<option>请输入市区</option>";
+                           for(var i in s){
+                               str+=`<option>${s[i].cshi}</option>`
+                           }
+                           $('#shi').html(str);
+                           $('#shi').change(function () {
+                               var i=$(this)[0].selectedIndex-1;
+                               var ss=s[i].xian;
+                               var str="<option>请输入县城</option>";
+                               for(var i in ss){
+                                   str+=`<option>${ss[i].x}</option>`
+                               }
+                               $('#xian').html(str);
+                               $('#xian').change(function () {
+                                   var k=$(this)[0].selectedIndex-1;
+                                   var aa=ss[k].xiang;
+                                   var str1="<option>请输入乡镇</option>";
+                                   for(var b in aa){
+                                       str1+=`<option>${aa[b].xx}</option>`
+                                   }
+                                   $('#xiang').html(str1);
+                                   $('#xiang').change(function () {
+                                       var c=$(this)[0].selectedIndex-1;
+                                       var f=aa[c].cun;
+                                       var str2="<option>请输入乡村</option>";
+                                       for(var y in f){
+                                           str2+=`<option>${f[y]}</option>`
+                                       }
+                                       $('#cun').html(str2);
+                                   })
+                               })
+                           })
+
+
+                       })
+                   }
+               })
+           })
+
+
+
+
+
+
+
+
+
+
+
+//           jq中的ajax写法
+//             $(function () {
+////                 {"sname":"河南","city":["洛阳市","新乡县","安阳市"]},
+////                 {"sname":"山东","city":["菏泽县","牡丹之乡","没去过"]}
+//                 $.ajax({
+//                     type:'get',
+//                     url:'josn/package.json',
+//                     aynsc:true,
+//                     success: function (ret) {
+//                         var str = '<option>请选择省份</option>';
+//                         for (var i in ret) {
+//                             str += `<option>${ret[i].sname}</option>`;
+//                         }
+//                         $('#sheng').html(str);
+//                         $('#sheng').change(function () {
+//                             var c=this.selectedIndex-1;
+//                             var t=ret[c].city;
+//                             var str='<option>请选择县成</option>';
+//                             for(var k in t){
+//                                 str+=`<option>${t[k]}</option>`
+//                             }
+//                             $("#shi").html(str);
+//                         })
+//                     }
+//                 })
+//             })
+
+
+
+
+
+
+
+
+
+
+//                     [{"uname":"张三","usex":"男","uage":"18"},
+//             {"uname":"李四","usex":"女","uage":"20"},
+//             {"uname":"王麻子","usex":"男","uage":"18"}
+//                     ],
+//           原生js写法
+//           var dat=[{sname:'北京',scity:['昭阳区','昌平区','海定区']},
+//                     {sname:'宁夏',scity:['银川','五中','武汉']},
+//                      {sname:'河南',scity:['兴洋','洛阳','安阳']}];
+//           var str='<option>请选择城市</option>';
+////           var ss='<option>请选择县城</option>';/*错误，不是二级联动*/
+//           for(var i in dat){
+//               str+=`<option>${dat[i].sname}</option>`;
+////               ss+=`<option>${dat[i].scity}</option>`/*错误，scity中的都在一行显示*/
+//           }
+//           document.getElementById('sheng').innerHTML=str;
+////           document.getElementById('shi').innerHTML=ss;/*错误*/
+//           document.getElementById('sheng').onchange= function () {
+//               var k=this.selectedIndex-1;/*获取select中的下标，0是请选择城市，所以要减1*/
+//               var city=dat[k].scity;/*根据下标找到dat中的scity*/
+//               var st='<option>请选择县城</option>';
+//               for(var e in city){/*循环*/
+//                   st+=`<option>${city[e]}</option>`;
+//               }
+//               document.getElementById('shi').innerHTML=st;
+//           }
+
+
+
+
+
+       </script>

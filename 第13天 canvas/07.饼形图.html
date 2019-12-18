@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/echarts.common.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<canvas id="mm" width="800" height="500"></canvas>
+	</body>
+	<script type="text/javascript">
+		var option={
+			title:{
+				text:"北京积云教育各专业人数"
+			}
+		
+			,series:{
+				name:"人数",
+				type:"pie",
+				data:[
+						{"name":"大数据",value:500}	
+						,{"name":"全栈",value:100}
+						,{"name":"人工智能",value:200}
+						,{"name":"物联网",value:800}
+					]
+			}
+		}
+		
+		var mychart=echarts.init(document.getElementById("mm"));
+		mychart.setOption(option)
+	</script>
+</html>

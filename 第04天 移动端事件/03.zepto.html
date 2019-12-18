@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.mm{
+				height: 400px;
+				background: #FF0000;
+			}
+		</style>
+	</head>
+	<script src="js/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/event.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="mm"></div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$(".mm").tap(function(){
+				$(this).html("长得帅，死的快，长得丑活的久")
+			})
+//			$(".mm").swipe(function(){
+//				$(this).html("动了，滑动了")
+//			})
+			$(".mm").longTap(function(){
+				$(this).html("长按")
+			})
+			$(".mm").doubleTap(function(){
+				$(this).html("双击")
+			})
+			$(".mm").swipeLeft(function(){
+				$(this).html("向左滑动")
+			})
+			$(".mm").swipeRight(function(){
+				$(this).html("向右滑动")
+			})			
+			$(".mm").swipeUp(function(){
+				$(this).html("向上滑动")
+			})
+			$(".mm").swipeDown(function(){
+				$(this).html("向下滑动")
+			})	
+		
+		})
+	</script>
+</html>

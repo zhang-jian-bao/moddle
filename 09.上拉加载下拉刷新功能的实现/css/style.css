@@ -1,0 +1,50 @@
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+body {
+  font-size: 0.24rem;
+  line-height: 0.4rem; }
+
+.header, .footer {
+  height: 0.7rem;
+  font-size: 0.2rem;
+  text-align: center;
+  background: #000000;
+  color: #fff;
+  line-height: 0.7rem; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  font-size: 0.16rem;
+  line-height: 0.3rem;
+  flex-direction: column; }
+
+.box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden; }
+  .box .content {
+    min-height: 101%;
+    background: #FFFF00; }
+
+.refer, .brefer {
+  font-size: 0.12rem;
+  text-align: center;
+  line-height: 0.2rem;
+  background: #eeeeee;
+  display: none; }
+
+.list li {
+  line-height: 0.5rem;
+  border-bottom: dashed 1px #ccc; }
+  .list li span {
+    color: #ccc;
+    font-size: 0.12rem; }
+
+/*# sourceMappingURL=style.css.map */

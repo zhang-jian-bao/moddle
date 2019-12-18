@@ -1,0 +1,53 @@
+IScroll的初始化 
+	1.html部分
+		<div class="hxc-box">
+			<div class="hxc-content">
+
+
+			</div>
+		</div>
+	或
+		<div class="hxc-box">
+			<ul>
+				<li>内容</li>
+				<li>内容</li>
+
+			</ul>
+
+		</div>
+
+
+	2.js代码部分
+		var hxcIscroll=new IScroll(".hxc-box",{})
+
+		注：针对移动端,要阻止浏览器自带的touch事件
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false})
+
+	3.注意：content的高度必须大于box的高度
+
+iScroll方法 
+	scrollX:true|false,//允许水平滑动,默认值为false
+	scrollY:true|false,//允许垂直滑动，默认值为true
+
+	mouseWheel:true|false //是否支持滑轮滚动 默认为false
+	scrollbars:true|false,//是否显示滚动条，默认值为false
+
+	startX,  //获取水平滚动的距离
+	startY,//获取垂直滚动的距离
+	maxscroll
+
+Iscroll的事件:
+	myScroll.refresh() 刷新
+	beforeScrollStart，在用户触摸屏幕但还没有开始滚动时触发。
+	scrollCancel，滚动初始化完成，但没有执行。
+	scrollStart，开始滚动
+	scroll，内容滚动时触发，只有在scroll-probe.js版本中有效，请参考onScroll event。
+	scrollEnd，停止滚动时触发。
+	flick，用户打开左/右。
+	zoomStart，开始缩放。
+	zoomEnd，缩放结束
+	
+
+app页内容部分的滚动 

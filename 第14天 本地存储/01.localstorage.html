@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="wd" />
+		<button id="bt">提交</button>
+		<a href="01-02.html">打开第二个页面</a>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("bt").onclick=function(){
+			var wd=document.getElementById("wd").value;
+			localStorage.uname=wd;//写入localstorage,
+		}
+	</script>
+</html>

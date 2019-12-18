@@ -1,0 +1,201 @@
+body, div, h2, h3, h4, span, p, ul, li, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.zjb-heard {
+  width: 6.8rem;
+  text-align: center;
+  height: 1.34rem;
+  background: greenyellow; }
+  .zjb-heard img {
+    width: 6.8rem;
+    height: 0.42rem;
+    display: block; }
+  .zjb-heard input {
+    border: none;
+    border-radius: 0.5rem;
+    outline-style: none;
+    width: 6.38rem;
+    height: 0.54rem;
+    text-align: center;
+    font-size: 0.2rem;
+    background: #eee url(../img/qq.png) no-repeat 2rem;
+    background-size: 0.24rem 0.24rem; }
+
+.zjb-box {
+  height: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee;
+  position: relative; }
+  .zjb-box .zjb-con {
+    min-height: 101%;
+    background: #fff;
+    padding: 0 0.18rem; }
+
+.banner img {
+  width: 6.4rem;
+  height: 1.62rem; }
+
+nav {
+  height: 1.22rem;
+  line-height: 0.6rem;
+  margin-top: 0.3rem;
+  border-bottom: solid 0.02rem #ccc; }
+  nav h2 {
+    height: 0.6rem;
+    line-height: 0.6rem; }
+  nav ul {
+    height: 0.6rem;
+    display: flex;
+    justify-content: space-between; }
+    nav ul li {
+      width: 25%;
+      font-size: 0.2rem;
+      line-height: 0.6rem; }
+      nav ul li:nth-child(1) {
+        width: 2rem; }
+      nav ul li.active {
+        font-weight: bold;
+        background: url(../img/a.png) no-repeat 0.84rem;
+        background-size: 0.17rem 0.12rem; }
+      nav ul li:nth-child(4) {
+        overflow: hidden;
+        width: 0.68rem;
+        background: url(../img/aa.png) no-repeat right;
+        background-size: 0.17rem 0.16rem; }
+
+.wrap {
+  height: 13rem; }
+  .wrap ul {
+    padding: 0.1rem 0; }
+    .wrap ul li {
+      padding-top: 0.1rem;
+      width: 6.44rem;
+      height: 2rem;
+      display: flex;
+      justify-content: space-between; }
+      .wrap ul li img {
+        width: 1.32rem;
+        height: 1.32rem; }
+      .wrap ul li div {
+        border-bottom: solid 2px #ccc;
+        width: 5rem; }
+        .wrap ul li div b {
+          font-size: 0.18rem;
+          display: block;
+          color: #ccc;
+          margin: 0.14rem 0; }
+          .wrap ul li div b > span {
+            color: red;
+            margin-right: 0.08rem; }
+        .wrap ul li div strong {
+          font-size: 0.18rem;
+          color: #ccc; }
+          .wrap ul li div strong > span {
+            margin-right: 2.26rem; }
+        .wrap ul li div p span {
+          display: inline-block;
+          font-size: 0.18rem;
+          text-align: center;
+          color: red;
+          height: 0.3rem;
+          width: 0.856rem;
+          border: solid 2px #ccc; }
+      .wrap ul li:nth-child(1) p span:nth-child(3), .wrap ul li:nth-child(1) p span:nth-child(4), .wrap ul li:nth-child(4) p span:nth-child(3), .wrap ul li:nth-child(4) p span:nth-child(4) {
+        color: #000; }
+      .wrap ul li:nth-child(1) p span:nth-child(5), .wrap ul li:nth-child(4) p span:nth-child(5) {
+        border: none; }
+      .wrap ul li:nth-child(2) p span:nth-child(4), .wrap ul li:nth-child(5) p span:nth-child(4) {
+        color: #000; }
+      .wrap ul li:nth-child(2) p span:nth-child(5), .wrap ul li:nth-child(5) p span:nth-child(5) {
+        border: none; }
+
+.zjb-foot {
+  height: 0.8rem;
+  background: #fafafa; }
+  .zjb-foot ul {
+    padding: 0.04rem 0;
+    display: flex;
+    justify-content: space-around; }
+    .zjb-foot ul li {
+      width: 25%;
+      text-align: center; }
+      .zjb-foot ul li img {
+        width: 0.68rem;
+        height: 0.72rem; }
+      .zjb-foot ul li.ccc {
+        background: red; }
+
+.xl, .sl {
+  height: 0.4rem;
+  background: #ccc;
+  text-align: center;
+  display: none; }
+
+.fh {
+  position: fixed;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: solid 2px red;
+  text-align: center;
+  line-height: 0.4rem;
+  right: 0;
+  bottom: 1.16rem;
+  z-index: 1000;
+  font-size: 0.30rem;
+  font-weight: bolder; }
+
+.hbb {
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  background: #ccc;
+  z-index: 100; }
+  .hbb .haa {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1rem;
+    border-radius: 50%;
+    background: red;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.4rem;
+    margin: 1rem 2.4rem 0; }
+  .hbb .hcc {
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    background: red;
+    border: solid 2px #000;
+    line-height: 1rem;
+    text-indent: 0.4rem;
+    font-size: 0.4rem;
+    font-weight: bolder;
+    margin: 1.8rem 1.4rem 0; }
+  .hbb > p {
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 0.6rem;
+    font-size: 0.3rem;
+    color: orange;
+    border: 1px solid #000;
+    margin: 6rem 3rem; }
+
+/*# sourceMappingURL=mf.css.map */

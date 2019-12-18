@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="hxc-header">头</div>
+		<div class="hxc-refer">下拉加载新内容</div>
+		<div class="hxc-box">
+			<div class="hxc-content">
+				<!--滚动内容开始-->
+				<ul class="list">
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+					<li>凤姐看上了小孙，如果愿意娶凤姐的话送200万</li>
+				</ul>
+				<!--滚动内容结束-->
+			</div>
+		</div>
+		<div class="hxc-brefer">上滑加载新内容</div>
+		
+		<div class="hxc-footer">
+			尾
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false})
+		
+		var hxcBox=new IScroll(".hxc-box",{})
+		
+		//下拉显示加载新内容
+		var hxcRefer=document.querySelector(".hxc-refer");
+		var hxcBrefer=document.querySelector(".hxc-brefer");
+		document.addEventListener("touchmove",function(){
+			//下拉显示下拉刷新功能
+			if(hxcBox.startY>20){
+				hxcRefer.style.display="block";
+			}
+		});
+		
+		var i=0;
+		
+				document.addEventListener("touchend",function(){
+					if(hxcBox.startY>20){
+						hxcRefer.innerHTML="正在加载新内容……";
+						setTimeout(function(){
+							hxcRefer.style.display="none";
+							hxcRefer.innerHTML="下拉刷新";
+							$.ajax({
+								type:"get",
+								url:"json/data.json",
+								async:true,
+								success:function(ret){
+									if(i<ret.length){
+									  var str=`<li>${ret[i].title}</li>`;
+									   $(".list").prepend(str);
+									}else{
+										alert("没有最新数据了")
+									}
+									i++;
+									hxcBox.refresh();
+								}
+							});
+						},2000)
+					}
+				})
+	
+	</script>
+</html>

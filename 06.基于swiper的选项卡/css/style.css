@@ -1,0 +1,43 @@
+body, ul, li, p, h1, h2 {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+body {
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.hxc-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden; }
+  .hxc-box .hxc-content {
+    min-height: 101%;
+    background: #ff0; }
+
+.hxc-header, .hxc-footer {
+  height: 0.5rem;
+  background: #000000;
+  color: #fff;
+  line-height: 0.5rem;
+  text-align: center; }
+
+.hxc-nav {
+  height: 0.4rem;
+  border-bottom: solid 1px #ccc;
+  background: #f0f0f0; }
+  .hxc-nav ul {
+    display: flex; }
+    .hxc-nav ul li {
+      width: 25%;
+      text-align: center;
+      line-height: 0.4rem; }
+      .hxc-nav ul li.active {
+        color: #e00; }
+
+/*# sourceMappingURL=style.css.map */

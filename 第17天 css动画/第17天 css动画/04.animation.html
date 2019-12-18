@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			@keyframes hxc{
+				from{
+					left:0;
+					top:0;
+					border-radius: 50%;
+				}
+				to{
+					border-radius:0;
+					left:1000px;
+					top:500px;
+				}
+			}
+			.mm{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: red;
+				animation:hxc 5s alternate ;
+				animation-iteration-count: 5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mm"></div>
+	</body>
+</html>

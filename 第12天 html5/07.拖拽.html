@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mm{
+				width: 1000px;
+				height: 300px;
+				border:solid 1px #cc0000;
+			}
+			#cc{
+				width: 200px;
+				height: 100px;
+				background: #c00;
+			}
+		</style>
+	</head>
+	<script type="text/javascript">
+		function drag(ev){
+			ev.preventDefault();
+		}
+		function drop(ev){
+			ev.preventDefault();
+			ev.target.appendChild(document.getElementById("cc"))
+		}
+	</script>
+	<body ondragover="drag(event)" ondrop="drop(event)">
+		<div id="mm" ondragover="drag(event)" ondrop="drop(event)"></div>
+		<div id="cc" draggable="true"></div>
+	</body>
+</html>

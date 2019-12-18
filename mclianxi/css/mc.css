@@ -1,0 +1,89 @@
+body, div, span, p, ul, li, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.zjb-heard {
+  height: 0.98rem; }
+  .zjb-heard img {
+    height: 0.46rem;
+    width: 4rem; }
+
+.zjb-box {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee; }
+  .zjb-box .zjb-con {
+    min-height: 101%;
+    background: #fff; }
+
+.banner {
+  height: 1.54rem; }
+  .banner img {
+    height: 1.54rem;
+    width: 4rem; }
+
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 1; }
+
+.swiper-pagination-bullet-active {
+  background: #000; }
+
+.tp {
+  height: 1.08rem;
+  margin-bottom: 0.2rem;
+  width: 4rem;
+  background: url(../img/59cb1b71N3e1254f5.png.webp) no-repeat;
+  background-size: 4rem 1.08rem; }
+
+.uu {
+  height: 2.12rem; }
+  .uu ul {
+    padding: 0.1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .uu ul li {
+      width: 20%;
+      height: 1rem;
+      text-align: center; }
+      .uu ul li img {
+        width: 0.41rem;
+        height: 0.41rem;
+        display: block;
+        margin: 0 auto; }
+      .uu ul li a {
+        text-decoration: none;
+        font-size: 0.12rem;
+        color: #000; }
+
+.last {
+  height: 0.45rem; }
+  .last img {
+    height: 0.45rem;
+    width: 4rem; }
+
+.zjb-foot {
+  height: 0.58rem; }
+  .zjb-foot ul {
+    display: flex;
+    justify-content: space-around; }
+    .zjb-foot ul li {
+      width: 20%; }
+      .zjb-foot ul li img {
+        width: 0.52rem;
+        height: 0.4rem; }
+
+/*# sourceMappingURL=mc.css.map */

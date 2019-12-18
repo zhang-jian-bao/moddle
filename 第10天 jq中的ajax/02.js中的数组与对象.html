@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="0" cellpadding="10" id="stulist">
+			
+		</table>
+	</body>
+	<script type="text/javascript">
+		var stu=[{uname:"凤姐姐",usex:"女",uage:28}
+				,{uname:"孙洋",usex:"男",uage:18}
+				,{uname:"如花姑娘",usex:"妖",uage:88}
+				];
+		var str="";
+			for(var i in stu){
+				str+=`<tr>
+						<td>${stu[i].uname}</td>
+						<td>${stu[i].usex}</td>
+						<td>${stu[i].uage}</td>
+					 </tr>`	;
+			}
+		document.getElementById("stulist").innerHTML=str;
+	</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="swiper-container" id="hxc-banner">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+				<div class="swiper-slide">轮播项</div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-scrollbar"></div>
+		</div>
+		
+		
+	</body>
+
+</html>
+		<script>
+			var hxcBanner=new Swiper("#hxc-banner",{
+				autoplay:1500,//自动播放的时间为毫秒
+				speed:500, //切换时间，也就是从A到B过渡的时间
+				//loop:true,//是否循环
+				pagination:".swiper-pagination",
+				paginationClickable:true,
+				paginationType:"fraction",
+				nextButton:".swiper-button-next",
+				prevButton:".swiper-button-prev",
+				effect:"slide",
+				slidesPerView:3,
+				scrollbar:".swiper-scrollbar",
+				scrollbarHide:false,
+				scrollbarDraggable:true,
+			})
+
+		</script>

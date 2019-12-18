@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="top"><img src="img/hs_01.jpg"/></div>
+		<div class="header">
+			<div class="smain">
+				<img src="img/hs_09.jpg"/>
+				<div>
+					<input type="text" placeholder="请输入你可查找的关键词;如:凤姐姐"/>
+				</div>
+				<img src="img/hs_04.jpg" />
+				<img src="img/hs_06.jpg" />
+			</div>
+			<div class="hxc-nav-container">
+				<img src="img/hs_19.jpg" />
+				<div class="hxc-nav">
+					<ul>
+						<li>猜你喜欢</li>
+						<li>母婴</li>
+						<li class="active">食品</li>
+						<li>女装</li>
+						<li>彩妆</li>
+						<li>玩具</li>
+						<li>家居</li>
+						<li>数码</li>
+						<li>美女</li>
+						<li>男装</li>
+					</ul>
+					
+				</div>
+				<img src="img/hs_22.jpg" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="content">
+				<!--滚动内容开始-->
+				<div class="swiper-container" id="hxc-banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/hs_26.jpg"/></div>
+						<div class="swiper-slide"><img src="img/hs_26.jpg"/></div>
+						<div class="swiper-slide"><img src="img/hs_26.jpg"/></div>
+					</div>
+				</div>
+				
+				<div class="hxc-subnav">
+					<ul>
+<!--						<li><img src="img/hs_29.jpg"/><a href="#">母婴用品</a></li>-->
+
+					</ul>
+				</div>
+				
+				
+				<div class="hxc-cp">
+					<h3>综合<i></i></h3>
+					<h3>券后价<span></span></h3>
+					<h3>销量<span></span></h3>
+					<h3><img src="img/hs_56.jpg"/></h3>
+				</div>
+				<!--产品列表开始-->
+				<div class="hxc-list">
+					<ul>
+						<!--<li>
+							<img src="img/hs_68.jpg"/>
+							<div>
+								<h3><span>天猫</span>好消息，现在买刀削面两碗可以免费送面汤一碗，传说中刀削面可以美容养颜</h3>
+								<h4>
+									<span>￥</span>86.8
+									<small>天猫价 ￥99.9</small>
+								</h4>
+								<h4><small>已售 13 件</small></h4>
+								<p>
+									<b>10元券</b>
+									<span>预估收益8元</span>
+								</p>
+							</div>
+						</li>-->
+	
+					</ul>
+					
+				</div>
+				
+				
+				<!--滚动内容结束-->
+			</div>
+		</div>
+		<div class="brefer">上滑加载新内容</div>
+		<div class="footer">
+			<ul>
+				<li><img src="img/hs_84.jpg"/><a href="#">首页</a></li>
+				<li><img src="img/hs_84.jpg"/><a href="#">首页</a></li>
+				<li><img src="img/hs_72.jpg"/></li>
+				<li><img src="img/hs_84.jpg"/><a href="#">首页</a></li>
+				<li><img src="img/hs_84.jpg"/><a href="#">首页</a></li>
+			</ul>
+		</div>
+		<div class="ftop">返回<br>顶部</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false}) //阻止移动端自带的touchmove事件
+		var mscroll=new IScroll(".box",{
+			probeType:2
+		})
+		var hxcNav=new IScroll(".hxc-nav",{
+			scrollX:true,
+			
+		})
+		//返回顶部功能
+		$(".ftop").click(function(){
+			mscroll.scrollTo(0,0)
+		})
+		//上滑加载新内容
+		//上滑显示加载
+		var brefer=document.querySelector(".brefer")
+		mscroll.on("scroll",function(){
+			if(mscroll.startY<mscroll.maxScrollY-20){
+				brefer.style.display="block"
+			}
+		})
+		
+		var k=3;
+		mscroll.on("scrollEnd",function(){
+			if(mscroll.startY<mscroll.maxScrollY-20){
+				brefer.innerHTML="正在加载新内容……"
+				setTimeout(function(){
+					brefer.style.display="none";
+					brefer.innerHTML="上滑加载新内容";
+					//ajax调用并加载新内容
+					$.ajax({
+						type:"get",
+						url:"json/data.json",
+						async:true,
+						success:function(ret){
+							var cp=ret.cplist;
+								 if(k==cp.length){
+								 	brefer.innerHTML="没有更多数据了";
+								 	brefer.style.display="block";
+								 	
+								 }else{
+									var mstr=`<li>
+												<img src="${cp[k].img}"/>
+												<div>
+													<h3><span>${cp[k].fm}</span>${cp[k].title}</h3>
+													<h4>
+														<span>￥</span>${cp[k].price}
+														<small>${cp[k].fm}价 ￥${cp[k].price2}</small>
+													</h4>
+													<h4><small>已售 ${cp[k].sale} 件</small></h4>
+													<p>
+														<b>${cp[k].djj}元券</b>
+														<span>预估收益${cp[k].sy}元</span>
+													</p>
+												</div>
+											</li>`;
+											$(".hxc-list ul").append(mstr);
+											
+									mscroll.refresh();
+									k++;
+								}
+						}
+					});
+				},3000)
+			}
+		})
+		
+		//轮播
+		var hxcBanner=new Swiper("#hxc-banner",{
+			autoplay:1500
+		})
+		
+		//导航ajax调用
+		$.ajax({
+			type:"get",
+			url:"json/data.json",
+			async:true,
+			success:function(ret){
+				var subnav=ret.subnav;
+				var nstr="";
+				for(var i in subnav){
+					nstr+=`<li><img src="${subnav[i].img}"/><a href="#">${subnav[i].tt}</a></li>`;
+				}
+				$(".hxc-subnav ul").html(nstr);
+				
+				//渲染产品
+				var cp=ret.cplist;
+				var cstr="";
+				for(var k=0;k<3;k++){
+					cstr+=`<li>
+							<img src="${cp[k].img}"/>
+							<div>
+								<h3><span>${cp[k].fm}</span>${cp[k].title}</h3>
+								<h4>
+									<span>￥</span>${cp[k].price}
+									<small>${cp[k].fm}价 ￥${cp[k].price2}</small>
+								</h4>
+								<h4><small>已售 ${cp[k].sale} 件</small></h4>
+								<p>
+									<b>${cp[k].djj}元券</b>
+									<span>预估收益${cp[k].sy}元</span>
+								</p>
+							</div>
+						</li>`
+				}
+				$(".hxc-list ul").html(cstr);
+				mscroll.refresh()
+			}
+		});
+		
+		
+		
+	</script>
+</html>

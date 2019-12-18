@@ -1,0 +1,77 @@
+一、canvas基础知识
+	<canvas id="" width="800" height="400"></canvas>
+
+	canvas本身没有绘图的能力，但是它能够为js 提供API,接口,借助js实现画图，动画等
+
+
+二、使用canvas绘制各种图形
+	1.绘制矩形:
+		<canvas id="mm" width="800" height="400"></canvas>
+	
+		<script>
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");//定义绘图板
+			    ctx.fillStyle="yellow";
+			      //ctx.fillRect(x,y,w,h); //x,y为矩形的起始点坐标,w为宽度，h为高度
+			    ctx.fillRect(100,100,400,200)
+
+		</script>
+
+	2.绘制圆
+		
+		<canvas id="mm" width="800" height="400"></canvas>
+		
+		<script>
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			    ctx.Pathbegin();
+			    ctx.arc(x,y,r,0,2*Math.PI)
+			    ctx.stroke()
+		</script>
+	3.绘制线段
+		
+		<canvas id="mm" width="800" height="400"></canvas>
+		
+		<script>
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			    ctx.moveTo(x,y);
+			    ctx.lineTo(x,y);
+			    ctx.lineTo(x,y)
+			    ctx.stroke()
+		</script>
+
+
+	4.绘制文字
+		
+	<canvas id="mm" width="800" height="400"></canvas>
+		
+		<script>
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			    ctx.font="24px 黑体";
+			    ctx.fillText("文字内容",x坐标,y坐标,文字宽度)
+		</script>
+
+
+	5.绘制图片:
+		<canvas id="mm" width="800" height="400"></canvas>
+		<img src="img/aa.jpg" id="myimg" style="display:none" />
+		
+		<script>
+		    window.onload=function(){
+			var mm=document.getElementById("mm");
+			var myimg=document.getElementById("myimg")
+			var ctx=mm.getContext("2d");
+			ctx.drawImage(myimg,200,100,300,200)
+		     }
+		</script>
+
+三、echarts.js进行数据表的绘制
+
+
+
+
+
+
+		

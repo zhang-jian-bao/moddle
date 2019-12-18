@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>查看留言(<a href="用户留言.html">我要留言</a>)</h1>
+		<ul id="list">
+			
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var str="";
+		for(var k in localStorage){
+			if(localStorage.getItem(k)){
+				str+=`<li>${localStorage.getItem(k)}   <button onclick=del(${k})>删除</button></li>`;
+			}
+			document.getElementById("list").innerHTML=str
+			
+		}
+		function del(k){
+			localStorage.removeItem(k);
+			location.reload()
+		}
+	</script>
+</html>

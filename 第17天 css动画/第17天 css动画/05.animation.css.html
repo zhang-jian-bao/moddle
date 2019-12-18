@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.mm{
+				width: 500px;
+				height: 100px;
+				font-size: 30px;
+				line-height: 100px;
+				margin: 0 auto;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mm animated slideInLeft">要想富，多生孩子少种树</div>
+	</body>
+	<script type="text/javascript">
+		$(".mm").click(function(){
+			$(this).removeClass("slideInLeft").addClass("slideOutRight")
+		})
+	</script>
+</html>

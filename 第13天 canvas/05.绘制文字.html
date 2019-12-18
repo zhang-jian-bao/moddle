@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="mm" width="400" height="200"></canvas>
+		<button id="bt">更新文字</button>
+	</body>
+	<script type="text/javascript">
+		function ctext(){
+			var str="abcdefghijklmnopqrstuvwxyz0123456789";
+			//var n=parseInt(Math.random()*36)
+			var a=str.substr(parseInt(Math.random()*36),1);
+			var b=str.substr(parseInt(Math.random()*36),1);
+			var c=str.substr(parseInt(Math.random()*36),1);
+			var d=str.substr(parseInt(Math.random()*36),1);
+			
+			var yzm=a+b+c+d;
+			
+			var mm=document.getElementById("mm");
+			var ctx=mm.getContext("2d");
+			ctx.clearRect(0,0,400,200);
+			 ctx.font="24px 黑体";
+			ctx.fillText(yzm,100,100)
+			
+		}
+		document.getElementById("bt").onclick=ctext;
+	</script>
+</html>

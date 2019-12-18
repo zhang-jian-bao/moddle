@@ -1,0 +1,34 @@
+@charset "utf-8";
+@import "share.scss";//引入公共scss文件
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body,html{
+    height: 100%;
+}
+body{
+    font-size: 0.16rem;
+    display: flex;
+    flex-direction: column;
+}
+.hxc-header{
+    height: 0.7rem;
+    background: #000000;
+    @include hhh(#fff);//这里使用的混合宏
+}
+.hxc-box{
+    height: 1rem;
+    flex-grow: 1; //设置弹性属性为自动扩大占满剩余空间
+    overflow: hidden;
+    .hxc-content{
+        min-height: 101%;
+        background: #ff0;
+    }
+    
+}
+.hxc-footer{
+    @extend .hxc-header;//这里使用的继承
+}

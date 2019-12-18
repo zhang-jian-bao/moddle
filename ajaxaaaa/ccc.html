@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="password" id="inp">
+<button>点击</button>
+</body>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    $("button").click(function(){
+        var inp1=$("#inp").attr("type");
+        console.log(inp1);
+        if(inp1=="password"){
+            $("#inp").attr("type","text")
+        }else{
+            $("#inp").attr("type","password")
+        }
+    })
+</script>
+</html>

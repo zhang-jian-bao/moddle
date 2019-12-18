@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<img src="http://www.baidu.com/img/bd_logo1.png?where=super"/>
+		<table border="1" cellspacing="0" cellpadding="10">
+			
+		</table>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.get("http://3w.houbowang.com/data/data.html",{},function(ret){
+				var str="";
+				for(var i in ret){
+					str+=`<tr>
+							<td>${ret[i].uname}</td>
+							<td>${ret[i].usex}</td>
+							<td>${ret[i].uage}</td>
+					</tr>`;
+				}
+				
+				$("table").html(str);
+				
+			},"json")
+			
+		})
+	</script>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/ajaxaa.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/ajaxaa.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">
+			<div>
+				<img src="img/a.png" alt="">
+				<p>登录</p>
+			</div>
+			<input type="text" placeholder="搜素商品、品牌">
+		</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<div class="top">
+					<ul>
+						<!--<li><img src="img/suning.webp" alt=""><a href="">苏宁易购</a></li>-->
+						<!--<li><img src="img/chaoshi.png" alt=""><a href="">天猫超市</a></li>-->
+						<!--<li><img src="img/guoji.webp" alt=""><a href="">天猫国际</a></li>-->
+						<!--<li><img src="img/juhuasuan.webp" alt=""><a href="">聚划算</a></li>-->
+						<!--<li><img src="img/fenlei.webp" alt=""><a href="">分类</a></li>-->
+					</ul>
+				</div>
+				<div class="middle">
+					<div class="swiper-container banner">
+						<div class="swiper-wrapper">
+							<!--<div class="swiper-slide"><img src="img/lunbo1.webp" alt=""></div>-->
+							<!--<div class="swiper-slide"><img src="img/lunbo2.webp" alt=""></div>-->
+							<!--<div class="swiper-slide"><img src="img/lunbo3.webp" alt=""></div>-->
+							<!--<div class="swiper-slide"><img src="img/lunbo1.webp" alt=""></div>-->
+						</div>
+					</div>
+				</div>
+				<div class="foot">
+					<div class="last-t">
+						<!--<img src="img/w.png" alt="">-->
+						<!--<div>-->
+							<!--<h4>去 <span>天猫APP</span></h4>-->
+							<!--<p>享受一下专享优惠和特权</p>-->
+						<!--</div>-->
+						<!--<p>去下载</p>-->
+					</div>
+					<ul>
+						<!--<li>-->
+							<!--<h3>下单有礼</h3>-->
+							<!--<p>精选商品专享</p>-->
+							<!--<p>满三单抽一百元红包</p>-->
+							<!--<img src="img/r_03.jpg" alt="">-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<h3>新人礼包</h3>-->
+							<!--<p>精选商品专享</p>-->
+							<!--<p>满三单抽一百元红包</p>-->
+							<!--<img src="img/r_05.jpg" alt="">-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<h3>充值优惠</h3>-->
+							<!--<p>精选商品专享</p>-->
+							<!--<p>满三单抽一百元红包</p>-->
+							<!--<img src="img/r_07.jpg" alt="">-->
+						<!--</li>-->
+					</ul>
+				</div>
+				
+				
+			</div>
+		</div>
+		<div class="zjb-foot">
+			<ul>
+				<!--<li><img src="img/r_25.jpg" alt=""><a href="">首页</a></li>-->
+				<!--<li><img src="img/r_13.jpg" alt=""><a href="">搜素</a></li>-->
+				<!--<li><img src="img/r_16.jpg" alt=""><a href="">分类</a></li>-->
+				<!--<li><img src="img/r_22.jpg" alt=""><a href="">购物车</a></li>-->
+				<!--<li><img src="img/r_19.jpg" alt=""><a href="">我的</a></li>-->
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{})
+	$.ajax({
+		type:'get',
+		url:'json/tsconfig.json',
+		async:true,
+		success: function (ret) {
+			var t=ret.top;
+			var str='';
+			for(var i in t){
+				str+=`<li><img src="${t[i].img}"><a href="#">${t[i].aa}</a></li>`
+			}
+			$('.top>ul').html(str);
+			var b=ret.banner;
+			var str1='';
+			for(var k in b){
+				str1+=`<div class='swiper-slide'><img src="${b[k]}"></div>`
+			}
+			$('.banner>.swiper-wrapper').html(str1);
+			var b=new Swiper('.banner',{
+				autoplay:1000,
+			})
+			var c=ret.las;
+			var str2='';
+			for(var a in c){
+				str2+=`<img src="${c[a].img}">
+				<div><h4>${c[a].h}<span>${c[a].sp}</span></h4>
+				<p>${c[a].pa}</p></div><p>${c[a].pb}</p>`
+			}
+			$('.last-t').html(str2);
+			var dd=ret.le;
+//			ret=JSON.parse(ret);
+			var str3='';
+			for(var b in dd){
+				str3+=`<li>
+				<h3>${dd[b].h}</h3>
+				<p>${dd[b].pa}</p><p>${dd[b].pb}</p>
+				<img src="${dd[b].img}" alt="">
+				</li>`
+			}
+			$('.foot ul').html(str3);
+			var ss=ret.ff;
+			var str4='';
+			for(var x in ss){
+				str4+=`<li><img src="${ss[x].img}" alt="">
+				<a href="">${ss[x].q}</a></li>`
+			}
+			$('.zjb-foot>ul').html(str4);
+		}
+	})
+
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/md.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/md.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">
+			<img src="img/q.png" alt="">
+             <div class="nav">
+				 <div class="n">
+				 <ul>
+					 <!--<li>财经</li>-->
+					 <!--<li>时尚</li>-->
+					 <!--<li>新闻</li>-->
+					 <!--<li>房产</li>-->
+					 <!--<li>教育</li>-->
+					 <!--<li>首页</li>-->
+					 <!--<li>热点</li>-->
+					 <!--<li>娱乐</li>-->
+				 </ul>
+				 </div>
+				 <img src="img/qq.png" alt="">
+			 </div>
+			
+		</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+				<div class="swiper-container banner">
+					<div class="swiper-wrapper">
+						<!--<div class="swiper-slide">-->
+							<!--<img src="img/lunbo1.jpg" alt="">-->
+							<!--<p>第一张图片</p>-->
+						<!--</div>-->
+						<!--<div class="swiper-slide">-->
+							<!--<img src="img/lunbo2.jpg" alt="">-->
+							<!--<p>第二张图片</p>-->
+						<!--</div>-->
+						<!--<div class="swiper-slide">-->
+							<!--<img src="img/lunbo3.jpg" alt="">-->
+							<!--<p>第三张图片</p>-->
+						<!--</div>-->
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+
+				<div class="last">
+					<ul>
+						<!--<li>-->
+							<!--<h3>纽约州跟Queen B一起看秀的女人都有哪些来头</h3>-->
+							<!--<div>-->
+								<!--<img src="img/tu1.jpg" alt="">-->
+								<!--<img src="img/tu2.jpg" alt="">-->
+								<!--<img src="img/tu3.jpg" alt="">-->
+							<!--</div>-->
+							<!--<p>24分钟前 <span>纽约</span></p>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<h3>热巴时装周偷拍看秀 高挑优雅公主范儿十足</h3>-->
+							<!--<div>-->
+								<!--<img src="img/tu4.jpg" alt="">-->
+								<!--<img src="img/tu5.jpg" alt="">-->
+								<!--<img src="img/tu6.jpg" alt="">-->
+							<!--</div>-->
+							<!--<p>24分钟前 <span>时装周</span></p>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<h3>狐媚要拍《红楼梦》电影，姚笛杨幂赵丽颖敢不敢来呢</h3>-->
+							<!--<div>-->
+								<!--<img src="img/q%20(1).jpg" alt="">-->
+								<!--<img src="img/q%20(2).jpg" alt="">-->
+								<!--<img src="img/q%20(3).jpg" alt="">-->
+							<!--</div>-->
+							<!--<p>11分钟前 <span></span></p>-->
+						<!--</li>-->
+						<!--<li>-->
+							<!--<h3>中国三观集团饮食中心成立仪式</h3>-->
+							<!--<div>-->
+								<!--<img src="img/q%20(4).jpg" alt="">-->
+								<!--<img src="img/q%20(5).jpg" alt="">-->
+								<!--<img src="img/q%20(6).jpg" alt="">-->
+							<!--</div>-->
+							<!--<p>10分钟前 <span>影视</span></p>-->
+						<!--</li>-->
+
+					</ul>
+				</div>
+
+
+
+				<!--滚动结束-->
+			</div>
+		</div>
+		<div class="zjb-foot">
+			<ul>
+				<!--<li><img src="img/cc%20(3).png" alt=""></li>-->
+				<!--<li><img src="img/cc%20(2).png" alt=""></li>-->
+				<!--<li><img src="img/cc%20(1).png" alt=""></li>-->
+				<!--<li><img src="img/cc%20(4).png" alt=""></li>-->
+				<!--<li><img src="img/cc%20(5).png" alt=""></li>-->
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	var zjbSc=new IScroll('.zjb-box',{});
+	var sc=new IScroll('.n',{
+		scrollX:true,
+		scrollY:false
+	});
+
+	$.ajax({
+		type:'get',
+		url:'json/tsconfig.json',
+		async:true,
+		success: function (ret) {
+			var nn=ret.nav;
+			var str='';
+			for(var i in nn){
+				str+=`<li>${nn[i]}</li>`;
+			}
+			$('.n>ul').html(str);
+			var lb=ret.lunBo;
+			var str1='';
+			for(var i in lb){
+				str1+=`<div	class="swiper-slide">
+				       <img src="${lb[i].img}" alt="">
+				       <p>${lb[i].pa}</p>
+				       </div>`;
+			}
+			$('.banner>.swiper-wrapper').html(str1);
+			var lb=new Swiper('.banner',{
+				autoplay:1500,
+				speed:4000,
+				loop:true,
+				pagination:".swiper-pagination",
+				paginationClickable:true,
+				effect:'fade'
+			})
+			var uu=ret.us;
+			var str3="";
+			for(var i in uu){
+				str3+=`<li>
+				        <h3>${uu[i].h}</h3>
+				        <div>
+				        <img src="${uu[i].a}" alt="">
+				        <img src="${uu[i].b}" alt="">
+				        <img src="${uu[i].c}" alt="">
+				        </div>
+				        <p>${uu[i].d}
+				        <span>${uu[i].e}</span>
+				        </p>
+				      </li>`;
+			}
+			$('.last>ul').html(str3);
+			var q=ret.t;
+			var str4='';
+			for(var i in q){
+				str4+=`<li><img src="${q[i]}" alt=""></li>`;
+			}
+			$('.zjb-foot>ul').html(str4);
+		}
+	})
+</script>

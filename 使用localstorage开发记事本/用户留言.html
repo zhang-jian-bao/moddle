@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>留言板</h1>
+		<input type="text" placeholder="留言内容" id="lycontent" size="100" /><br />
+		<br />
+		<button id="bt">提交留言</button>
+	</body>
+	<script type="text/javascript">
+		document.getElementById("bt").onclick=function(){
+			var lycontent=document.getElementById("lycontent").value;
+			var t=new Date().getTime();
+			
+			localStorage.setItem(t,lycontent);
+			location="查看留言.html";
+		}
+	</script>
+</html>

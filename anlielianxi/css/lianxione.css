@@ -1,0 +1,108 @@
+body, div, ul, li, ol, p, h2, h3, h4, span, img {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  font-size: 0.16rem;
+  line-height: 0.3rem;
+  display: flex;
+  flex-direction: column; }
+
+header {
+  width: 6.4rem;
+  background: greenyellow;
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  font-size: 0.24rem;
+  font-weight: bolder; }
+
+nav {
+  background: #eee;
+  width: 6.4rem;
+  height: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  nav .con {
+    width: 5.8rem;
+    overflow: hidden; }
+    nav .con ul {
+      width: 8rem;
+      display: flex; }
+      nav .con ul li {
+        height: 0.6rem;
+        width: 20%;
+        font-size: 0.18rem;
+        line-height: 0.6rem;
+        text-align: center; }
+        nav .con ul li.active {
+          font-weight: bolder;
+          color: red; }
+  nav p {
+    width: 0.6rem;
+    text-align: center;
+    font-size: 0.2rem;
+    font-weight: bolder; }
+
+.banner {
+  width: 6.4rem;
+  height: 2rem; }
+  .banner img {
+    width: 6.4rem;
+    height: 2rem; }
+
+.xxk {
+  height: 0.7rem;
+  line-height: 0.7rem; }
+  .xxk ul {
+    display: flex;
+    justify-content: space-around; }
+    .xxk ul li {
+      width: 25%;
+      text-align: center; }
+      .xxk ul li.one {
+        font-weight: bolder;
+        color: #fff;
+        background: red; }
+
+#top {
+  width: 6.4rem;
+  height: 0;
+  background: pink;
+  flex-grow: 1; }
+  #top .swiper-wrapper {
+    height: 100%; }
+    #top .swiper-wrapper .swiper-slide {
+      height: 100%; }
+
+.middle {
+  height: 100%;
+  flex-grow: 1;
+  background: #fff; }
+  .middle ul {
+    min-height: 101%;
+    background: #fff;
+    padding: 0.2rem; }
+    .middle ul li {
+      border-bottom: dashed 0.02rem red; }
+
+.sl {
+  height: 0.7rem;
+  text-align: center;
+  line-height: 0.7rem;
+  font-size: 0.24rem;
+  font-weight: bolder;
+  background: red;
+  display: none; }
+
+footer {
+  height: 0.7rem;
+  background: yellow; }
+
+/*# sourceMappingURL=lianxione.css.map */

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select id="sheng"></select>
+		<select id="city"></select>
+		<select id="xian"></select>
+	</body>
+	<script type="text/javascript">
+		var data=[
+		  {"sname":"北京市","city":[
+		 							 {"cname":"北京城区","xian":["丰台区","东城","西城","朝阳","海淀"]}
+		 							 ,{"cname":"北京郊区","xian":["昌平","延庆","顺义","大兴","平谷","怀柔"]}
+		 						  ]	
+		  }
+		  , {"sname":"山东省","city":[
+		 							 {"cname":"济南","xian":["历城","古城区","章丘"]}
+		 							 ,{"cname":"菏泽","xian":["开发区","牡丹区","曹县","单县","定陶","郓城"]}
+		 						  ]	
+		   }
+		 , {"sname":"河南省","city":[
+		 							 {"cname":"郑州","xian":["二七区","金水区","新郑"]}
+		 							 ,{"cname":"洛阳","xian":["平房区","楼房区","地下区","阴城区"]}
+		 						  ]							 
+		  }
+		]
+		
+		//写入省份
+		var str="<option>请选择省份</option>";
+		for(var i in data){
+		str+=`<option>${data[i].sname}</option>`;
+		}
+		$("#sheng").html(str);
+		
+		//当选择省份时，写入相对应城市
+		var k;
+		$("#sheng").change(function(){
+			 k=$(this)[0].selectedIndex-1;//获取被选省份的索引值
+			var citydata=data[k].city;
+			var str="<option>请选择城市</option>";
+			for(var i in citydata){
+				str+=`<option>${citydata[i].cname}</option>`
+			}
+			$("#city").html(str);
+			$("#xian").html("");
+		})
+		
+		//当改变城市时，写入相对应县区
+		$("#city").change(function(){
+			var m=$(this)[0].selectedIndex-1;
+			var xiandata=data[k].city[m].xian;
+			var str="<option>请选择县</option>";
+			for(var i in xiandata){
+				str+=`<option>${xiandata[i]}</option>`
+			}
+			$("#xian").html(str);
+		})
+	</script>
+</html>

@@ -1,0 +1,210 @@
+body, div, span, p, ul, li, ol, img, input {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.16rem;
+  line-height: 0.3rem; }
+
+.zjb-heard {
+  height: 0.92rem;
+  background: greenyellow; }
+  .zjb-heard > img {
+    width: 6rem;
+    height: 0.3rem; }
+  .zjb-heard div {
+    height: 0.6rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .zjb-heard div img {
+      width: 0.26rem;
+      height: 0.26rem; }
+    .zjb-heard div input {
+      width: 3.4rem;
+      height: 0.42rem;
+      border: none;
+      outline-style: none;
+      border-radius: 0.06rem;
+      padding-left: 1.14rem;
+      background: #e8e8e8 url(../img/shop_05.jpg) no-repeat 0.7rem;
+      background-size: 0.25rem 0.26rem; }
+
+.zjb-box {
+  height: 5.2rem;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee; }
+  .zjb-box .zjb-con {
+    min-height: 5.3rem;
+    background: #fff; }
+
+.nav {
+  height: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .nav .left {
+    width: 5.48rem;
+    overflow: hidden; }
+    .nav .left ul {
+      width: 8rem;
+      display: flex;
+      justify-content: space-between; }
+      .nav .left ul li {
+        width: 0.45rem;
+        line-height: 0.4rem;
+        text-align: center; }
+        .nav .left ul li:nth-child(3) {
+          color: orange;
+          font-size: 0.2rem;
+          font-weight: bold;
+          border-bottom: solid 4px red; }
+        .nav .left ul li:hover {
+          color: orange;
+          font-size: 0.2rem;
+          font-weight: bold;
+          border-bottom: solid 4px red; }
+  .nav img {
+    width: 0.26rem;
+    height: 0.26rem; }
+
+.banner {
+  height: 2.4rem; }
+  .banner img {
+    height: 2.4rem;
+    width: 6rem; }
+
+.uu {
+  height: 2.92rem; }
+  .uu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.34rem 0;
+    justify-content: space-around; }
+    .uu ul li {
+      width: 20%;
+      height: 1.4rem;
+      text-align: center; }
+      .uu ul li img {
+        width: 0.64rem;
+        height: 0.64rem;
+        display: block;
+        margin: 0 auto; }
+      .uu ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 0.18rem; }
+
+.ba {
+  height: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  background: #eee; }
+  .ba .bc {
+    min-height: 101%;
+    background: #fff; }
+
+.wc {
+  height: 0.48rem;
+  border-top: solid 2px #ccc;
+  border-bottom: solid 2px #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .wc ul {
+    width: 5.3rem;
+    display: flex; }
+    .wc ul li {
+      width: 33%;
+      text-align: center; }
+      .wc ul li a {
+        text-decoration: none;
+        color: #000;
+        font-size: 0.18rem; }
+      .wc ul li img {
+        width: 0.09rem;
+        height: 0.14rem;
+        margin-left: 0.04rem;
+        vertical-align: middle; }
+  .wc > img {
+    width: 0.3rem;
+    height: 0.3rem; }
+
+.ff {
+  width: 6rem;
+  height: 12rem; }
+  .ff ul {
+    padding: 0.1rem 0; }
+    .ff ul li {
+      height: 1.80rem;
+      margin-top: 0.1rem;
+      display: flex;
+      justify-content: space-around; }
+      .ff ul li > img {
+        width: 1.8rem;
+        height: 1.8rem; }
+      .ff ul li div {
+        height: 1.8rem;
+        width: 3.94rem; }
+        .ff ul li div h3 {
+          width: 1.9rem;
+          padding-left: 0.6rem;
+          background: url(../img/shop_32.jpg) no-repeat 0.2rem;
+          background-size: 0.3rem 0.2rem; }
+        .ff ul li div h5 {
+          color: #ccc; }
+          .ff ul li div h5 span {
+            margin-right: 0.4rem;
+            color: red; }
+        .ff ul li div b {
+          color: red; }
+        .ff ul li div p {
+          width: 6rem;
+          height: 0.24rem; }
+          .ff ul li div p span {
+            display: inline;
+            width: 0.7rem;
+            height: 0.24rem;
+            background: red;
+            color: #fff;
+            font-size: 0.18rem;
+            text-align: center;
+            margin-right: 1.4rem; }
+            .ff ul li div p span:nth-child(2) {
+              width: 1.56rem;
+              margin-right: 0; }
+
+.zjb-foot {
+  height: 0.74rem; }
+  .zjb-foot ul {
+    padding: 0.1rem 0;
+    display: flex;
+    justify-content: space-around; }
+    .zjb-foot ul li {
+      width: 20%;
+      text-align: center; }
+      .zjb-foot ul li img {
+        width: 0.3rem;
+        height: 0.3rem;
+        display: block;
+        margin: 0 auto; }
+      .zjb-foot ul li a {
+        text-decoration: none;
+        font-size: 0.18rem;
+        color: #000; }
+      .zjb-foot ul li:nth-child(3) img {
+        width: 0.68rem;
+        height: 0.55rem; }
+
+/*# sourceMappingURL=mb.css.map */

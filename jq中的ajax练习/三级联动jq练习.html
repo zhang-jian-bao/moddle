@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三级联动练习</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+         <select name="" id="sheng"></select>
+         <select name="" id="shi"></select>
+         <select name="" id="xianc"></select>
+</body>
+</html>
+         <script>
+             $(function () {
+                 $.ajax({
+                     type:'get',
+                     url:'josn/tsconfig.json',
+                     async:true,
+                     success: function (ret) {
+                         var str = '<option>请选择省份</option>';
+                         for (var i in ret) {
+                             str += `<option>${ret[i].sname}</option>`;
+                         }
+                         $('#sheng').html(str);
+                         $('#sheng').change(function () {
+                             $('#xianc').html('请选择县城');
+                             var k=$(this)[0].selectedIndex-1;
+                             var city=ret[k].scity;
+                             var str='<option>请选择市区</option>';
+                             for(var i in city){
+                                 str+=`<option>${city[i].cshi}</option>`;
+                             }
+                             $('#shi').html(str);
+                             $('#shi').change(function () {
+                                 var t=$(this)[0].selectedIndex-1;
+                                 var x=city[t].xian;
+                                 var str='<option>请选择县城</option>';
+                                 for(var d in x){
+                                     str+=`<option>${x[d]}</option>`;
+                                 }
+                                 $('#xianc').html(str);
+                             })
+                         })
+                     }
+                 })
+             })
+
+         </script>

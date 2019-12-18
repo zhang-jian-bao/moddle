@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,
+    maximum-scale=1,user-scalable=no">
+    <title>练习一</title>
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/lianxione.css">
+    <script src="js/iscroll-probe.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/swiper-3.4.2.min.js"></script>
+    <script src="js/lianxione.js"></script>
+</head>
+<body>
+         <!--头部布局-->
+          <header>环球贴吧网</header>
+         <!--导航条布局-->
+          <nav>
+              <div class="con">
+                  <ul>
+                      <li class="active">首页</li>
+                      <li>娱乐</li>
+                      <li>热点</li>
+                      <li>新闻</li>
+                      <li>财经</li>
+                      <li>贴吧网</li>
+                      <li>关于我们</li>
+                      <li>联系我们</li>
+                  </ul>
+              </div>
+              <p>&gt;</p>
+          </nav>
+          <!--轮播图布局-->
+          <div class="swiper-container banner">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="img/l01.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="img/l02.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="img/l03.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="img/l04.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="img/l05.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="img/l06.jpg" alt=""></div>
+              </div>
+          </div>
+
+          <!--选项卡点击带有上下移动，和上下拉加载-->
+           <div class="xxk"><!--选项卡-->
+               <ul>
+                   <li class="one">天气好</li>
+                   <li>心情好</li>
+                   <li>神清气爽</li>
+                   <li>心旷神怡</li>
+               </ul>
+           </div>
+          <div class="swiper-container" id="top">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                      <div class="sl">上拉刷新</div>
+                      <div class="middle">
+                          <!--<div class="sl">上拉刷新</div>-->
+                          <ul>
+                              <li>听说我很帅，想了一晚上，是谁走漏了风声</li>
+                              <li>一年四季，你最喜欢那个季节</li>
+                              <li>有你的季节，我都喜欢</li>
+                              <li>喜欢撩妹，却不想找对象，我好难啊！</li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="swiper-slide">第二页
+                      <ul>
+                          <li>听说我很帅，想了一晚上，是谁走漏了风声</li>
+                          <li>一年四季，你最喜欢那个季节</li>
+                          <li>有你的季节，我都喜欢</li>
+                          <li>喜欢撩妹，却不想找对象，我好难啊！</li>
+                      </ul>
+                  </div>
+                  <div class="swiper-slide">第三页</div>
+                  <div class="swiper-slide">第四页</div>
+              </div>
+          </div>
+           <!--页脚-->
+           <footer>页脚</footer>
+</body>
+</html>
+       <script>
+           //阻止浏览器自带的touchmove事件
+           document.addEventListener("touchmove", function (event) {
+               event.preventDefault();
+           },{passive:false});
+          //导航条左右移动布局
+           var lr=new IScroll(".con",{
+               scrollX:true,
+               scrollY:false
+           })
+          //轮播图布局
+           var banner=new Swiper('.banner',{
+                onSlideChangeEnd: function (swiper) {
+                    var k=swiper.activeIndex;
+                    $('.con>ul>li').eq(k).addClass('active').siblings().removeClass('active');
+                }
+           });
+           //点击导航，切换轮播
+       $('.con>ul>li').click(function () {
+           $(this).addClass('active').siblings().removeClass('active');
+           var i=$(this).index();
+           banner.slideTo(i);
+       });
+           var tt=new Swiper('#top',{
+               autoplay:1500
+           });
+           var yiDong=new IScroll('.middle',{
+               probeType:2
+           });
+           var x=document.querySelector('.sl');
+           yiDong.on("scroll", function () {
+               if(yiDong.startY>20){
+                   x.style.display='block';
+               }
+           });
+           yiDong.on("scrollEnd", function () {
+               if(yiDong.startY>20){
+                   x.innerHTML='正在加载中。。。';
+                   setTimeout(function () {
+                       x.style.display='none';
+                       var str=`<li>日了狗了</li>`;
+                       $('.middle>ul').prepend(str);
+                   },1000)
+               }
+           })
+       </script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="hxc-header">头部</div>
+		<div class="hxc-refer">下拉刷新</div>
+		<div class="hxc-box">
+			<div class="hxc-content">
+				<!--滚动内容开始 -->
+				滚动内容
+				<div class="aa"></div>
+				<div class="bb"></div>
+				<div class="cc"></div>
+				<!--滚动内容结束 -->
+			</div>
+		</div>
+		<div class="hxc-brefer">下滑加载新内容</div>
+		<div class="hxc-footer">尾部</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false})
+		var hxcBox=new IScroll(".hxc-box",{});
+		
+		//下拉显示“下拉刷新”
+		var hxcRefer=document.querySelector(".hxc-refer");
+		var hxcBrefer=document.querySelector(".hxc-brefer");
+		document.addEventListener("touchmove",function(){
+			if(hxcBox.startY>20){   //当下拉距离大于20px时
+				hxcRefer.style.display="block"
+			}
+			if(hxcBox.startY<hxcBox.maxScrollY-20){ //当上滑距离小于-20px时
+				hxcBrefer.style.display="block";
+			}
+		})
+		document.addEventListener("touchend",function(){
+			if(hxcBox.startY>20){  //当在下拉距离大于20px时，停止触摸的方法
+				hxcRefer.innerHTML="正在加载新内容……";
+				setTimeout(function(){
+					hxcRefer.style.display="none";
+					hxcRefer.innerHTML="下拉刷新"
+				},2000)
+			}
+			if(hxcBox.startY<hxcBox.maxScrollY-20){
+				hxcBrefer.innerHTML="正加载新内容……"
+				setTimeout(function(){
+					hxcBrefer.style.display="none";
+					hxcBrefer.innerHTML="上滑刷新"
+				},2000)
+			}
+		})
+	</script>
+</html>

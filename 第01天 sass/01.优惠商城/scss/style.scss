@@ -1,0 +1,31 @@
+$w:1rem;
+
+body,ul,ol,li,p,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body{
+    font-size: 0.16rem;
+    line-height: 0.3rem;
+}
+.hxcTop{
+    height: 0.43rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    img{
+        width: 0.2rem;
+        height: 0.2rem;
+    }
+    h3{
+        width: 3.35rem;
+        text-align: center;
+    }
+}
+.hxcBanner{
+    img{
+        width: $w*4;
+        height: 1.13rem;
+    }
+}

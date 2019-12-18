@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="header">头部</div>
+		<div class="refer">下拉刷新</div>
+		<div class="box">
+			<div class="content">
+				<!--滚动区域开始-->
+				<ul class="list">
+					
+				</ul>
+				
+				<!--滚动区域结束-->
+			</div>
+		</div>
+		<div class="brefer">上滑加载新内容</div>
+		<div class="footer">
+			底部
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false}) //阻止移动端自带的touchmove事件
+		var mscroll=new IScroll(".box",{
+			probeType:2
+		})
+			//ajax调用数据
+		var upnews="";
+		$.get("json/data.json",{},function(ret){
+			var news=ret.news;
+			var str="";
+			upnews=ret.upnews;
+			for(var i in news){
+				str+=`<li>${news[i].title}    <span>发布时间:${news[i].ctime}</span></li>`
+			}
+			
+			$(".list").html(str);
+			
+			mscroll.refresh();//重新加载iscroll
+			
+		},"json")
+		
+		
+		
+		
+		var refer=document.querySelector(".refer")
+		var brefer=document.querySelector(".brefer")
+		mscroll.on("scroll",function(){
+			if(mscroll.startY>20){
+				refer.style.display="block"
+			}
+			if(mscroll.startY<mscroll.maxScrollY-20){
+				brefer.style.display="block"
+			}
+		})
+		
+var k=0;	
+		mscroll.on("scrollEnd",function(){
+			if(mscroll.startY>20){
+				refer.innerHTML="正在加载新内容";
+				setTimeout(function(){
+					refer.style.display="none";
+					refer.innerHTML="下拉刷新";
+				},2000)
+			}
+			
+		
+			if(mscroll.startY<mscroll.maxScrollY-20){
+				brefer.innerHTML="正在加新新内容";
+				setTimeout(function(){
+					brefer.style.display="none";
+					brefer.innerHTML="上滑加载新内容";
+					if(k>=upnews.length){
+						alert("已经没有最新内容了")
+					}else{
+						var str=`<li>${upnews[k].title}    <span>发布时间:${upnews[k].ctime}</span></li>`;
+						$(".list").append(str);
+						mscroll.refresh()
+					}
+					k++;
+					
+					
+					
+				},2000)
+			}
+		})
+		
+		
+	
+	</script>
+</html>

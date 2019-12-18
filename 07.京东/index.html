@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="hxc-header">
+			<input type="text" placeholder="大疆超级品牌无人机直销" />
+			<a>登录</a>
+			
+		</div>
+		<div class="hxc-box">
+			<div class="hxc-content">
+				<!--滚动内容开始-->
+				<div class="swiper-container" id="hxc-banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/banner_1.jpg"/></div>
+						<div class="swiper-slide"><img src="img/banner_2.jpg"/></div>
+						<div class="swiper-slide"><img src="img/banner_3.jpg"/></div>
+						<div class="swiper-slide"><img src="img/banner_4.jpg"/></div>
+						<div class="swiper-slide"><img src="img/banner_5.jpg"/></div>
+					</div>
+				</div>
+				
+				<div class="hxc-nav">
+					<ul>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+						<li><img src="img/jd_07.png"/><a href="#">京东超市</a></li>
+					</ul>
+					
+				</div>
+				
+				<div class="hxc-ads">
+					<img src="img/jd_33.png"/>
+				</div>
+				<div class="hxc-ms">
+					<img src="img/jd_ms.jpg"/>
+				</div>
+				
+				<div class="hxc-cp">
+					<ul>
+						<li><img src="img/1.jpg"/></li>
+						<li><img src="img/2.jpg"/></li>
+						<li><img src="img/3.jpg"/></li>
+						<li><img src="img/4.jpg"/></li>
+						<li><img src="img/5.jpg"/></li>
+					</ul>
+					
+				</div>
+				<div class="hxc-cp hxc-cp2">
+					<ul>
+						<li><img src="img/1.jpg"/></li>
+						<li><img src="img/2.jpg"/></li>
+						<li><img src="img/3.jpg"/></li>
+						<li><img src="img/4.jpg"/></li>
+						<li><img src="img/5.jpg"/></li>
+					</ul>
+					
+				</div>				
+				<!--滚动内容结束-->
+			</div>
+		</div>		
+		<div class="hxc-footer">
+			<ul>
+				<li class="active"><img src="img/jd_37.png"/><a href="#">推贱</a></li>
+				<li><img src="img/jd_39.png"/><a href="#">分类</a></li>
+				<li><img src="img/jd_41.png"/><a href="#">发现</a></li>
+				<li><img src="img/jd_43.png"/><a href="#">购物车</a></li>
+				<li><img src="img/jd_45.png"/><a href="#">我的</a></li>
+			</ul>
+		</div>
+		<div class="hxc-hongbao">
+			<div><h2>领红包</h2>
+				<img src="img/hongbao.jpg"/>
+				<span id="hxc-close">&times;</span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//阻止浏览器自带的touch事件行为
+		document.addEventListener("touchstart",function(event){
+			event.preventDefault()
+		},{passive:false});
+		
+		//iscroll初始化
+		var hxcIScroll=new IScroll(".hxc-box",{})
+		
+		var hxcBanner=new Swiper("#hxc-banner",{
+			autoplay:1500,
+		})
+		var hxcCp=new IScroll(".hxc-cp",{
+			scrollX:true,
+			scrollY:false
+		})
+		var hxcCp=new IScroll(".hxc-cp2",{
+			scrollX:true,
+			scrollY:false
+		})
+		$(".hxc-footer ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active")
+		})
+		$("#hxc-close").click(function(){
+			$(this).parent().parent().hide()
+		})
+	</script>
+</html>

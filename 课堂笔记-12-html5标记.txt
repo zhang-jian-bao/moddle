@@ -1,0 +1,43 @@
+ 
+ 一、新增的主体结构元素 
+	
+	header:定义头
+	nav: 导航
+	section 定义块
+	article 文章内容
+	aside 侧边栏
+	footer 定义页脚
+	mark 标记
+
+二、新增加的非主体结构元素
+
+	<video></video> 插入视频
+	<audio></audio> 插入音频
+	<canvas></canvas>插入画图板
+
+三、新增的表单域元素
+	type="search"  搜索框
+	data  日期
+	number 数字
+	color:颜色
+	range 范围
+	email 邮箱
+	url   url网址
+四、history:
+	history.back() 返回上一页
+	history.forward() 返回下一页
+	history.go(-1) 返回上一页 history.back()
+	history.go(-2) 返回上一页的上一页
+	history.go(1) 返回下一页
+
+五、拖拽：
+		html5标记新增加属性：draggable="true|false"
+		html5新增加拖拽事件有：
+			ondragstart 开始拖拽
+			ondragover 拖拽滑过
+			ondrop  拖拽释放
+
+
+	   event.target 事件目标对象
+
+

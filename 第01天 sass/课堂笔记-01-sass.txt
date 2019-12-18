@@ -1,0 +1,114 @@
+一、什么是sass,sass的作用:
+	sass是基于ruby语言，进行css样式预编译器，通过编译后生成css文件，sass弥补了css样式的不足，sass可以使用变量，判断，循环，继承和混合器;
+	通过scss进行css编译功能，可以很方便快捷管理css样式文件
+	sass文件的扩展名.scss或.sass, 这两者的区别是：
+		.sass用换行来代替分号和花括号，.scss是.sass的升级版，完全可以按照编写css的要求来编写.scss文件，比较符合我们的习惯，
+	
+
+二、sass环境配置方法:
+	第一步：安装ruby.exe,用管理员方式运行ruby-2.4.1.2-x64.exe,按提示安装既可，切记不可改变安装目录;
+	第二步：验证ruby是否安装成功：windows+R 键打开运行，输入cmd,打开命令提示符,输入 ruby -v回车
+	第三步：安装sass, 该步骤必须在联网状态下完成,输入命令：gem install sass回车 ;
+	第四步：验证sass是否安装成功,输入命令：sass -v 回车
+	第五步：安装compass，输入命令 gem install compass回车
+	第六步：验证compass是否安装成功  输入命令 compass -v回车
+
+	第七步：配置开发工具的预编译设置 
+		打开hbuilder编辑器>工具>预编译器设置>新建
+		  文件后缀：.sass,.scss
+		  触发命令的路径：C:\Ruby24\bin\sass.bat
+		  命令参数：--no-cache %FileName% ../css/%FileBaseName%.css
+
+	
+
+三、使用scss变量：
+	1.声明变量：$变量名:值; 例如：$w:500px;
+	2.变量的使用：
+		选择器{
+			width:$w*2;
+			height:$w;
+		}
+	3.使用插值:
+		例如：
+		$b:box;
+
+		mm-#{$b}{
+			width:300px;
+			height:200px;			
+		}
+		
+	
+	
+
+
+四、嵌套scss:
+
+	选择器{
+		css样式;
+		后代选择器{
+			css样式；
+		}
+
+	}
+
+
+		
+
+五、scss中的继承的应用
+	.aa{
+		width:300px
+	}
+	.cc{
+		@extend .aa;
+		
+	}
+
+六、scss的注释
+	//单行注释
+	/*这里注释*/
+	只要有中文出现，需要在文件头加入:@charset "utf-8";
+
+七、scss的混合:
+	混合宏也叫混合器
+	类似于我们在js中的自定义函数
+	声明混合宏：
+
+		@mixin hxcBox($w,$h){
+			width:$w;
+			height:$h;
+			border:solid 1px #00f;
+		}
+
+	使用混合宏的方法
+		.main{
+			background:#ff0;
+			@include hxcBox(800px,300px);
+		}
+
+
+
+一、设置弹性盒子的方法：
+	给父元素设置：diplay:flex;
+	让内容自动换行：flex-wrap:wrap;
+                垂直居中：  align-items: center;
+	内容的分布对齐方式：justify-content:space-between |space-around
+
+二、rem:
+	是根元素的字体大小的缩放比例, html标记的字体大小，2rem=html的字体大小*2
+
+三、动态设置rem的方法：也就根据设备的屏幕大小改变html标记的字体大小，从而动态的改变了rem的比值。
+	
+	function rem(){
+		document.documentElement.style.fontSize=document.documentElement.clientWidth/7.5+"px"
+		
+}
+	rem();
+	window.onresize=rem;
+	
+em:是根据父元素的字体大小的缩放比列。
+%：是父元素的百分比。
+vw:是设备的宽度百分比。
+vh：是设备高度的百分比。
+vmin：是设备最小百分比。
+vmax:是设备最大百分比。
+min-height:最小高度。	

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/aaaa.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/aaa.js'></script>
+	</head>
+	<body>
+		<div class="zjb-heard">头部</div>
+		<nav>
+			<ul>
+				<!--<li>首页</li>-->
+				<!--<li>娱乐</li>-->
+				<!--<li>热点</li>-->
+				<!--<li>新闻</li>-->
+				<!--<li>财经</li>-->
+				<!--<li>八卦</li>-->
+				<!--<li>新闻</li>-->
+				<!--<li>财经</li>-->
+				<!--<li>八卦</li>-->
+				<!--<li>八卦</li>-->
+			</ul>
+		</nav>
+		<div class="top">下拉加载。。。</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+
+				<!--添加选项卡样式-->
+				<div class="swiper-container aa">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="nv">
+								<em>倾斜字体em</em><br>
+								<b>字体加粗b</b><br>
+								<big>字体变大big</big><br>
+								<i>倾斜标签i</i><br>
+								<abbr title="字体缩写">定义字体缩写abbr</abbr><br>
+								<dfn>定义术语，以斜体显示dfn</dfn><br>
+								<kbd>定义键盘键kbd</kbd><br>
+								<samp>定义样本samp</samp><br>
+								<var>定义变量字体var</var><br>
+								<code>定义计算机源代码code</code>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="er"></div>
+							<div class="san"></div>
+						</div>
+						<div class="swiper-slide">33333333333</div>
+						<div class="swiper-slide">4444444444444444</div>
+						<div class="swiper-slide">5555555555555555</div>
+						<div class="swiper-slide">66666666666666</div>
+						<div class="swiper-slide">77777777777777</div>
+						<div class="swiper-slide">888888888888888</div>
+						<div class="swiper-slide">999999999999</div>
+						<div class="swiper-slide">101010101010101010</div>
+					</div>
+				</div>
+
+
+				<!--滚动结束-->
+			</div>
+		</div>
+		<div class="bottom">上拉刷新。。。</div>
+		<div class="zjb-foot">
+			<ul>
+				<!--<li><img src="img/aa%20(1).png" alt=""></li>-->
+				<!--<li><img src="img/aa%20(4).png" alt=""></li>-->
+				<!--<li><img src="img/aa%20(10).png" alt=""></li>-->
+				<!--<li><img src="img/aa%20(13).png" alt=""></li>-->
+				<!--<li><img src="img/aa%20(2).png" alt=""></li>-->
+			</ul>
+		</div>
+	</body>
+</html>
+<script>
+
+	//点击底部图片，变红（切换）
+	var str=["img/aa (14).png","img/aa (6).png",
+	"img/aa (8).png","img/aa (11).png","img/aa (3).png"];
+	var ss=["img/aa (1).png","img/aa (4).png",
+		"img/aa (10).png","img/aa (13).png","img/aa (2).png"];
+
+	var st='';
+	$(function(){
+		$('.zjb-foot>ul>li>img').eq(0).attr('src',str[0]);
+
+	})
+	for(var i in ss){
+		st+=`<li><img src="${ss[i]}" alt=""></li>`
+	}
+	$(".zjb-foot>ul").html(st);
+	$('.zjb-foot>ul>li').click(function () {
+		var index=$(this).index();
+		var src=$('.zjb-foot>ul>li>img');
+
+		console.log(src)
+		for(var i in src){
+			if(i!=index){
+				$('.zjb-foot>ul>li>img').eq(i).attr('src',ss[i]);
+			}else{
+				$('.zjb-foot>ul>li>img').eq(i).attr('src',str[i]);
+			}
+		}
+	})
+
+
+	//阻止浏览器的默认touchmove事件
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false})
+	//中间滚动区域的布局
+	var zjbSc=new IScroll('.zjb-box',{});
+	//导航条的左右滚动布局
+	var zjbSc1=new IScroll('nav',{
+		scrollY:false,
+		scrollX:true
+	});
+	//上拉下拉加载
+	var tb=document.querySelector('.top');
+	var bb=document.querySelector('.bottom');
+
+	document.addEventListener('touchmove', function () {
+		if(zjbSc.startY>20){
+			tb.style.display='block';
+		}
+		if(zjbSc.startY<zjbSc.maxScrollY-20){
+			bb.style.display='block';
+		}
+	})
+	var ee=0;
+	document.addEventListener('touchend', function () {
+		if(zjbSc.startY>20){
+			tb.innerHTML='正在加载中。。。';
+			setTimeout(function () {
+				$.get('json/tsconfig.json',{}, function (ret) {
+					var rer=ret.jz;
+					var str1='';
+					if(ee<rer.length){
+						if(ee==0){
+							str1+=`<div>${rer[ee].t}</div>`
+						}else
+						if(ee==1){
+							str1+=`<div>${rer[ee].b}</div> `;
+						}
+					ee++
+					}else {
+						alert("数据加载完毕")
+					}
+					$('.nv').prepend(str1);
+				},'json')
+				tb.innerHTML='ok';
+				setTimeout(function () {
+					tb.style.display='none';
+				},1000)
+			},2000)
+		}
+		if(zjbSc.startY<zjbSc.maxScrollY-20){
+			bb.innerHTML='正在加载中。。。';
+			setTimeout(function () {
+				bb.innerHTML='ok';
+				setTimeout(function () {
+					bb.style.display='none';
+				},1000)
+			},2000)
+		}
+	})
+	//点击导航切换内容
+	var qh=new Swiper('.aa',{
+		onSlideChangeEnd:function(swiper){
+			var k=swiper.activeIndex;
+			$('nav>ul>li').eq(k).addClass('active').siblings().removeClass('active');
+		}
+	})
+	//用ajax渲染导航
+	$.ajax({
+		type:'get',
+		url:'json/tsconfig.json',
+		async:true,
+		success: function (ret) {
+			var uu=ret.nav;
+			var str='';
+			for(var i in uu){
+				if(i==0){
+					str+=`<li class="active">${uu[i]}</li>`;
+				}else{
+					str+=`<li>${uu[i]}</li>`;
+				}
+			}
+			$('nav ul').html(str);
+			$('nav>ul>li').click(function () {
+				$(this).addClass('active').siblings().removeClass('active');
+				var i=$(this).index();
+				qh.slideTo(i);
+			})
+		}
+	})
+	//第二张渲染
+	$.ajax({
+		type:"get",
+		url:'json/tsconfig.json',
+		async:true,
+		success: function (ret) {
+			var e=ret.e;
+			var str='';
+			for(var i in e){
+				str+=`<ul><li>${e[i]}</li></ul>`;
+			}
+			$('.er').html(str);
+			
+		}
+	})
+</script>

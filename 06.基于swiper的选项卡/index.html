@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="hxc-header">
+			选项卡
+		</div>
+		<div class="hxc-nav">
+			<ul>
+				<li class="active">首页</li>
+				<li>新闻</li>
+				<li>人物</li>
+				<li>个人</li>
+			</ul>
+		</div>
+		<div class="hxc-box">
+			<div class="hxc-content">
+				<!--滚动内容区-->
+				<div class="swiper-container" id="hxc-page">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<h2>这里是首页</h2>
+							等我有了钱，我天天吃刀削面，一次买两碗，吃一碗喂狗一碗
+						</div>
+						<div class="swiper-slide">
+							<h2>新闻</h2>
+							美国一老太报警说其儿子要自杀
+							美国警察为防止其自杀将其击毙
+						</div>
+						<div class="swiper-slide">
+							<h2>人物</h2>
+							传说中的凤姐说要嫁给冯洋，同时要彩礼五十万就可以了
+						</div>
+						<div class="swiper-slide">
+							<h2>个人中心</h2>
+							姓名：李宝裤<br /><br />
+							年龄：24<br /><br />
+							名片：中共中央国务院辽宁市场宣传办龙泉山庄药膳部，药膳经理李宝裤
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				<!--滚动内容区结束-->
+			</div>
+		</div>
+		<div class="hxc-footer">
+			底部
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	document.addEventListener("touchstart",function(ev){
+		ev.preventDefault()
+	},{passive:false})
+	var hxcBox=new IScroll(".hxc-box",{});
+	
+	var hxcPage=new Swiper("#hxc-page",{
+		onSlideChangeEnd:function(swiper){
+			var k=swiper.activeIndex;//获取当前显示的项的索引值
+			$(".hxc-nav ul li").eq(k).addClass("active").siblings().removeClass("active")
+		}
+	});
+	
+	
+	$(".hxc-nav ul li").click(function(){
+		$(this).addClass("active").siblings().removeClass("active")
+		var i=$(this).index();//获取被单击元素的索引值
+		hxcPage.slideTo(i);
+	})
+</script>

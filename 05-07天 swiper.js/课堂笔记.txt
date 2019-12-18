@@ -1,0 +1,47 @@
+一、什么是swiper?
+	针对移动端的滑屏特效免费javascript插件,
+	swiper是javascript脚本编写的类,使用它必须要进行实例化
+二、为什么要使用swiper？
+
+	1、免费，开源的，稳定，强大的滑屏插件
+	2、很多大公司在使用：腾讯，
+	3、配置简单就可以实现平板，手机等功能强大的触摸功能，焦点图，tab，触摸导航
+	4、可单独使用，不需要jQuery,也可以结合jQuery或zepto插件
+	5、大量的实例可以下载使用
+
+三、swiper的关键选项
+	swiper有自带的css样式库
+ 	swiper的库文件有两个，swiper.min.css   swiper.min.js
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">第一个</div>
+			<div class="swiper-slide">第二个</div>
+			<div class="swiper-slide">第三个</div>
+			<div class="swiper-slide">第四个</div>	
+		</div>
+		<!-- 如果需要分页器--!>
+		<div class="swiper-pagination"></div>
+	</div>
+	<script  language="javascript">
+	     var mswiper=new Swiper(".swiper-container",{
+		autoplay: 2000,	 //自动轮播时间 单位是毫秒
+		direction: vertical,    //滑动方向 默认的为水平(horizontal),vertical是垂直 方向
+		pagination:".swiper-pagination",
+		slidesPerView:1,    //每页显示slide数量
+		slidesPerGroup:1,   //分组  
+		paginationClickable:true,//单击分页器可进行切换，默认值false
+		nextButton:".swiper-button-next",  //设置前进按钮
+		prevButton:".swiper-button-prev",  //设置后退按钮
+		observeParents:true,//当窗口大小改变时，更新swiper
+
+		//下面是swiper的回调函数应用举例,这里与jquery结合
+		onSlideChangeEnd:function(swiper){    //当slide改变之后回调
+			var $k=swiper.activeIndex;	//获取活动状态的slide的索引
+			$(".tab div").eq($k).addClass("active").siblings().removeClass("active")
+			}
+	     })
+	</script>
+
+
+
+	

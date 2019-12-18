@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原生ajax，跨域，渲染练习</title>
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+<body>
+      <ul>
+          <li></li>
+      </ul>
+      <button>点击</button>
+       <h3></h3>
+</body>
+</html>
+      <script>
+//          原生JS
+          document.querySelector('button').onclick= function () {
+              var htm=new XMLHttpRequest();
+              htm.open('get','../sass/惊喜.html',true);
+              htm.send();
+              htm.onreadystatechange= function () {
+                  if(htm.readyState==4&&htm.status==200){
+                      var da=htm.responseText;
+                      document.querySelector('h3').innerHTML=da;
+                  }
+              }
+          }
+
+
+
+
+//          $(function () {
+//              $.ajax({
+//                  type:'get',
+//                  url:'../sass/惊喜.html',
+//                  aynsc:true,
+//                  success: function (ret) {
+//                    $('ul').html(ret);
+//                  },error:function(msg){
+//                      $('ul').html('错误');
+//                  }
+//              })
+//          })
+//          $(function () {
+//              $.get('josn/package.json',{}, function (ret) {
+//                  var str='';
+//                  for(var i in ret){
+//                      str+=`<li>${ret[i].uname}</li>
+//                            <li>${ret[i].usex}</li>
+//                            <li>${ret[i].uage}</li>`;
+//                      $('ul').html(str);
+//                  }
+
+//              },'json')/*不写json，会出来路径内容*/
+//          })
+
+//          $(function () {
+//              $.getJSON('josn/package.json', function (ret) {
+//                 var str='';
+//                  for(var k in ret){
+//                      str+=`<li>${ret[k].uname}</li>
+//                            <li>${ret[k].usex}</li>
+//                            <li>${ret[k].uage}</li>`;
+//                      $('ul').html(str);
+//                  }
+//              })
+//          })
+//            $(function () {
+//                $.post('josn/package.json',{}, function (ret) {
+//                    var str = '';
+//                    for (var k in ret) {
+//                        str += `<li>${ret[k].uname}</li>
+//                                        <li>${ret[k].usex}</li>
+//                                        <li>${ret[k].uage}</li>`;
+//                        $('ul').html(str);
+//                    }
+//                },'json');
+//            })
+
+//          var str=[{name:'张三',rd:18,cc:'男'},
+//                   {name:'李四',rd:18,cc:'女'},
+//                   {name:'网莽子',rd:18,cc:'男'}];
+//          var st='';
+//          for(var i in str){
+//              st+=`<li>${str[i].name}</li>
+//                   <li>${str[i].rd}</li>
+//                   <li>${str[i].cc}</li>`;
+//              document.querySelector('ul').innerHTML=st;
+//          }
+//      function add(c){
+//          var str='';
+//          for(var i in c){
+//              str+=`<li>${c[i].uname}</li>
+//                      <li>${c[i].usex}</li>
+//                      <li>${c[i].uage}</li>`;
+//              document.querySelector('ul').innerHTML=str;
+//          }
+//      }
+
+      </script>
+<!--<script src="c.html"></script>--><!--//跨域练习-->

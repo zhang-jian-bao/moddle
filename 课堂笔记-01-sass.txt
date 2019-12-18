@@ -1,0 +1,73 @@
+1.什么是sass,它的作用是什么？
+  它css编译器,使用ruby语言进行开发，编译后生成css文件，弥补了css样式的不足，css样式不能使用变量，循环，嵌套和继承,
+	它的作用是方便快捷的管理css样式文件
+
+2.sass开发环境配置方法:
+	第一步:安装ruby.exe;安装后要验证是否安装成功：打开运行输入cmd，回车，打开命令提示符，输入 ruby -v，回车，如果显示ruby字样，就代表安装成功，
+	第二步：计算机先联网，安装sass，使用命令 gem install sass回车，
+	第三步：验证sass是否安装成功,输入命令 sass -v 回车,如果出现 ruby sass xxx字样，代表安装成功,
+	第四步：安装compass插件,输入命令 gem install compass回车，该 步骤同样必须联网 ,
+	第五步，验证是compass是否安装成功，输入命令：compass -v回车
+	第六步，配置我们的开发环境，打开hbuilder软件 ,
+		打开hbuilder>工具>编译器配置,打开窗口如果有.sass,.scss项目，选中编辑，如果没有新建，
+	--no-cache %FileName% ../css/%FileBaseName%.css
+
+
+一、使用scss变量
+	1.定义变量：$变量名:值;
+	使用变量：
+		选择器{
+			width:$变量名;
+		}
+	2.使用插值：
+	   $t:top;
+	  选择器{
+		padding-#{$t}:50px
+	 }
+
+二、嵌套scss
+	.mm{
+		background:red;
+		ul{
+		   display:flex;
+		  li{
+			width:20%
+			}
+		}
+
+	}
+    针对子元素的嵌套
+	.mm{
+	   &>ul{
+		display:flex;
+		}
+	}
+	
+
+scss中的继承的应用:
+   	选择器{
+		@extend 另外的选择器;
+	}
+
+
+scss的注释:
+	只有单行注释:  //注释的内容
+	有时因为注释中有中文，编译会报错，只要我们在scss文件开头加
+	@charset "utf-8";
+
+scss的混合:类似于js中的函数 
+	定义混合器;
+	@mixin 函数名($参数1,$参数2){
+		width:$参数1;
+		height:$参数
+	}
+	选择器{
+		background:red;
+		@include 函数名(参数1的值,参数2值)
+	}
+
+使用选择器的嵌套来精简css
+	
+
+
+

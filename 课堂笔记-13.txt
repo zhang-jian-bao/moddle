@@ -1,0 +1,59 @@
+一、掌握canvas的基础知识
+	canvas是html5中进行图形绘制的容器，它本身没有绘制图形的能力，要借助javascript
+
+<canvas id="mm" width="800" height="600"></canvas>
+
+二、Canvas元素绘制各种基本图形的API
+    1.绘制一个矩形:
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(0,0,150,75);
+	ctx.strokeRect(x,y,w,h)空心矩形
+	知识点
+	getContext("2d") 获取二维画板
+	fillStyle 填充样式（颜色）
+	Rect 矩形
+	ctx.fillRect(x,y,w,h)	
+	x,y为起始坐标 w为矩形宽，h为矩形高
+
+    2.绘制一个实心圆和空心圆:
+	绘制实心圆;
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.fillStyle="#c00";
+		ctx.arc(95,50,40,0,2*Math.PI);   Math.PI这是半个
+		ctx.fill();
+	绘制空心圆:
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+                                ctx.strokeStyle='red';
+		ctx.beginPath();//开始绘制
+                                //ctx.arc(x,y,r,0,2*Math.PI)//不乘以2是半圆除以/2是画弧线
+		ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.stroke();
+    3.绘制一段线
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+    4.绘制文字
+
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.font="30px 微软雅黑";
+	ctx.fillText("好嗨",10,50);
+                ctx.fillText（‘文字内容’,x,y,文字宽度）
+    5.将图片绘制到canvas
+	window.onload=function(){
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		var img=document.getElementById("scream");
+		ctx.drawImage(img,10,10);
+                                ctx.drawImage(获取的图片,x,y,w,h);
+	}
+
+
+

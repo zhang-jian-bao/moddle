@@ -1,0 +1,136 @@
+一、掌握canvas的基础知识
+	canvas是html5中进行图形绘制的容器，它本身没有绘制图形的能力，要借助javascript
+
+<canvas id="mm" width="800" height="600"></canvas>
+
+二、Canvas元素绘制各种基本图形的API
+    1.绘制一个矩形:
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(0,0,150,75);
+		     x,y, w,h   x,y为起始坐标,w为宽度，h为高度
+	
+	知识点
+	getContext("2d") 获取二维画板
+	fillStyle 填充样式（颜色）
+		
+	ctx.fillRect(x,y,w,h)	//Rect 矩形
+	x,y为起始坐标 w为矩形宽，h为矩形高
+
+    2.绘制一个实心圆和空心圆:
+	绘制实心圆;
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.fillStyle="#c00";//设置填充色
+		ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.fill();
+	绘制空心圆:
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		ctx.beginPath();
+		ctx.strokeStyle="green";//设置描边色
+		ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.stroke();
+    3.绘制一段线
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();
+    4.绘制文字
+
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.font="30px 微软雅黑";
+	ctx.fillText("好嗨",10,50);
+    5.将图片绘制到canvas
+	window.onload=function(){
+		var c=document.getElementById("myCanvas");
+		var ctx=c.getContext("2d");
+		var img=document.getElementById("scream");
+		ctx.drawImage(img,10,10);
+		//drawImage(图片元素,x,y,w,h)
+	}
+
+   6.canvas的清空画布的方法：
+		 context.clearRect(0, 0, canvas.width, canvas.height)
+   7.那么大家想一想，如何制作动画呢？
+三、Echarts.js
+	1.这是一款基于HTML5的图形库，这个库是百度的项目
+	2.echarts.js主要是利用canvas绘制一些数据图形，比如：折线图，柱形图，饼形图等
+	3.使用方法：
+	
+
+ 绘制折线图：
+
+		第一步，引用Js文件：<script type="text/javascript" src="js/echarts.js"></script>
+		第二步：准备一个放图表的容器:<div id="mm" style="width:600px; height: 400px;"></div>
+		第三步，设置参数，初始化图表:
+	<script type="text/javascript">
+     		 //指定图标的配置和数据
+        	var option = {
+        	    title:{
+             		   text:'ECharts 数据统计'
+           		 },
+          	    tooltip:{},
+           	    legend:{
+               		 data:['用户来源']
+           		 },
+            	    xAxis:{
+              		  data:["高中全栈","人工智能","大数据","物联网"]
+           	    },
+            	   yAxis:{
+
+           		 },
+            		series:[{
+               			  name:'访问量',
+              			  type:'line',
+              		  	data:[500,200,360,100]
+           		      }]
+       			 };
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('mm'));
+
+        //使用制定的配置项和数据显示图表
+         myChart.setOption(option);
+
+    </script>
+
+
+ 绘制柱线图：
+		方法同折线图一样，只需要更改为  type:"bar" 
+
+
+饼形图：
+
+	<script type="text/javascript">
+		 var option = {
+            title:{
+                text:'ECharts 我的学习'
+            },
+           
+            
+           
+            series:[{
+                name:'访问量',
+                type:'pie',
+                data:[
+                	{name:"android",value:500},
+                	{name:"pad",value:100},
+                	{name:"iphone",value:400},
+                	{name:"app",value:200}
+                	]
+            }]
+        };
+        //初始化echarts实例
+        var myChart = echarts.init(document.getElementById('mm'));
+
+        //使用制定的配置项和数据显示图表
+        myChart.setOption(option);
+	</script>
+
+
+
+

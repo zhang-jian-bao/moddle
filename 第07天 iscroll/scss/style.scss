@@ -1,0 +1,55 @@
+body{
+    font-size: 0.16rem;
+    line-height: 0.3rem;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.hxc-box{
+    height: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    .hxc-content{
+        min-height: 101%;
+        background: #ff0;
+    }
+}
+
+
+
+.hxc-header{
+    height: 0.5rem;
+    background: #000;
+    color: #fff;
+    line-height: 0.5rem;
+    text-align: center;
+}
+.hxc-footer{
+    @extend .hxc-header;
+}
+.hxc-refer{
+    line-height: 0.2rem;
+    background: #ccc;
+    text-align: center;
+    font-size: 0.12rem;
+    display: none;
+}
+.hxc-brefer{
+    @extend .hxc-refer;
+}
+.aa{
+    height: 3rem;
+    background: #FD8000;
+}
+.bb{
+    height: 5rem;
+    background: #00FF00;
+}
+.cc{
+    height: 3rem;
+    background: #2A6496;
+}

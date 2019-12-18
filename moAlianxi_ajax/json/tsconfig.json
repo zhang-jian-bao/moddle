@@ -1,0 +1,36 @@
+{
+  "top":[{"img":"img/suning.webp","aa":"苏宁易购"},
+          {"img":"img/chaoshi.png","aa":"天猫超市"},
+          {"img":"img/guoji.webp","aa":"天猫国际"},
+          {"img":"img/juhuasuan.webp","aa":"聚划算"},
+           {"img":"img/fenlei.webp","aa":"分类"}
+  ],
+  "banner":["img/lunbo1.webp",
+             "img/lunbo2.webp",
+              "img/lunbo3.webp",
+              "img/lunbo1.webp"
+              ],
+  "las":[
+    {"img":"img/w.png","h":"去",
+      "sp":"天猫APP","pa":"享受一下专享优惠和特权",
+    "pb":"去下载"}
+  ],
+  "le":[
+    {"h":"下单有礼","pa":"精选商品专享",
+      "pb":"满三单抽一百元红包",
+      "img":"img/r_03.jpg"},
+    {"h":"新人礼包","pa":"精选商品专享",
+      "pb":"满三单抽一百元红包",
+      "img":"img/r_05.jpg"},
+    {"h":"充值优惠","pa":"精选商品专享",
+      "pb":"满三单抽一百元红包",
+      "img":"img/r_07.jpg"}
+  ],
+  "ff":[
+    {"img":"img/r_25.jpg","q":"首页"},
+    {"img":"img/r_13.jpg","q":"搜素"},
+    {"img":"img/r_16.jpg","q":"分类"},
+    {"img":"img/r_22.jpg","q":"购物车"},
+    {"img":"img/r_19.jpg","q":"我的"}
+  ]
+}

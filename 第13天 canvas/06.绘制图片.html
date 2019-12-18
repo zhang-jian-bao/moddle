@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#mm{
+				border:solid 1px #000066
+			}
+			#myimg{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mm" width="800" height="400"></canvas>
+		<img src="img/aa.jpg" id="myimg" />
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var mm=document.getElementById("mm");
+		var myimg=document.getElementById("myimg")
+		var ctx=mm.getContext("2d");
+			ctx.drawImage(myimg,200,100,300,200)
+		}
+	</script>
+</html>

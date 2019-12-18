@@ -1,0 +1,40 @@
+一、flex容器 flexible box弹性盒模型：
+	由一个大的元素及多个子元素组成
+	设置弹性盒子的方法:
+		给父元素设置：display:flex;
+
+二、掌握flex-direction:row|column 
+	给父元素设置弹性盒子的方向
+		flex-direction:row|column
+		row为默认值,为水平分布
+		column 为垂直分布
+
+三、掌握 justify-content属性
+	当子元素大小之和小于父元素时,将父元素剩余空间分布,使用justify-content,给父元素设置
+	justify-content设置父元素的剩余空间的分布情况
+	justify-content:space-between|space-around|flex-end|flex-start|center
+
+四、align-items 
+	内容的对齐方式
+	align-items:center  中线对齐
+	align-items:flex-end  底线对齐
+
+五、flex-wrap:wrap :内容自动换行
+
+六、flex属性(给子元素设置):
+	flex-grow:0|1 默认值0
+
+	当子元素大小和比父元素小时，给指定的元素设置 flex-grow:1,意思让该元素自动扩大并占满父元素剩余空间
+	
+	flex-shrink:1 默认值为1,意思子元素自动缩小
+	当子元素大小和比父元素大时， 给指定 的元素设置flex-shrink:0,让该元素不缩小
+
+七、总结：弹性盒子所有属性
+	display:flex; 设置弹性盒子
+	flex-direction:column|row,设置弹性方向
+	flex-wrap:wrap,自动换行
+	align-items:center 设置内容对齐方式
+	justify-content:space-around; 设置父元素剩余空间的分配方式
+	
+	flex-grow:1;设置该元素自动扩大占满父元素的剩余空间,默认值0
+	flex-shrink:0;设置该元素不自动缩小,默认值为1;

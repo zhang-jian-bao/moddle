@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<script src="js/rem.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="hxc-header">头部</div>
+		<div class="hxc-nav">
+			<ul>
+				<li class="active">今日头条</li>
+				<li>社会新闻</li>
+				<li>娱乐新闻</li>
+				<li>科技新闻</li>
+			</ul>
+		</div>
+		<div class="swiper-container" id="hxc-page">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<h1>今日聚焦</h1>
+					<div class="hxc-box" id="hxc-toutiao">
+						<div class="hxc-content">
+							
+							<ul>
+								<li>轻轻的我来了，正如你悄悄的在吃刀削面</li>
+								<li>有的人活着可他已经死了那也是活着</li>
+								<li>有的人死了可他仍然活着他活在人们的心中那也是死了</li>
+								<li>广州有两人投资19万一年造出17万的假币被抓</li>
+								<li>西安大表哥的悲剧就是因为长了一张笑咪咪的脸</li>
+								<li>对面有一帅哥正想加个微信发现原来是一面镜子</li>
+								<li>每次听到"长得帅死的快"这首歌都吓的我打哆嗦</li>
+								<li>好消息现在买两碗刀削面送面汤一碗</li>
+								<li>昨天晚上你是不是和凤姐睡觉了</li>
+								<li>有的人活着可他已经死了那也是活着</li>
+								<li>有的人死了可他仍然活着他活在人们的心中那也是死了</li>
+								<li>广州有两人投资19万一年造出17万的假币被抓</li>
+								<li>西安大表哥的悲剧就是因为长了一张笑咪咪的脸</li>
+								<li>对面有一帅哥正想加个微信发现原来是一面镜子</li>
+								<li>每次听到"长得帅死的快"这首歌都吓的我打哆嗦</li>
+							</ul>
+							
+						</div>						
+					</div>
+
+				</div>
+				<div class="swiper-slide">
+					<h1>社会新闻</h1>
+					<div class="hxc-box" id="hxc-shehui">
+						<div class="hxc-content">
+							社会新闻社会新闻社会新闻
+						</div>
+					</div>
+					
+				</div>
+				<div class="swiper-slide">
+					<h1>娱乐新闻</h1>
+					<div class="hxc-box" id="hxc-yule">
+						<div class="hxc-content">
+							娱乐新闻娱乐新闻娱乐新闻
+						</div>
+					</div>
+					
+				</div>
+				<div class="swiper-slide">
+					<h1>科技新闻</h1>
+					<div class="hxc-box" id="hxc-keji">
+						<div class="hxc-content">
+							新闻新闻新闻新闻新闻
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		
+		</div>
+		<div class="hxc-footer">
+			底部
+		</div>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener("touchmove",function(ev){
+			ev.preventDefault()
+		},{passive:false}) //阻止移动端自带的touchmove事件
+	
+		//swiper选项卡分页初始微信
+		var hxcPage=new Swiper("#hxc-page",{
+			onSlideChangeEnd:function(swiper){
+				var i=swiper.activeIndex;
+				$(".hxc-nav ul li").eq(i).addClass("active").siblings().removeClass("active")
+			}
+		})
+		//点击导航按钮切换选项卡
+		$(".hxc-nav ul li").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			var k=$(this).index();
+			hxcPage.slideTo(k);
+		})
+		//分页实现滚动功能初始化
+		var hxcToutiao=new IScroll("#hxc-toutiao",{});
+		var hxcShehui=new IScroll("#hxc-shehui",{});
+		var hxcYule=new IScroll("#hxc-yule",{});
+		var hxcKeji=new IScroll("#hxc-keji",{});
+	</script>
+</html>

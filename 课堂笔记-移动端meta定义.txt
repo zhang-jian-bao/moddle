@@ -1,0 +1,32 @@
+一、pc端常见的meta定义
+	<meta charset="utf-8">
+	<title>关键词1_关键词2_标题</title>
+	
+	关键词：<meta name="keywords" content="网页的关键词,一般一到三个关键词,首页可以多几个,字数控制在80个汉字以内">
+	网页关键内容：<meta name="description" content="一般是根据网页的内容进行简述,一般字数不超过120个汉字">
+	
+	作者名：<meta name="author" content="北京xx网络公司 黄半仙">
+	
+	meta标记的属性主要有：name
+			     content
+			     charset
+
+
+二、移动端常见meta定义:
+	<meta name="viewport" content="width=device-width"/>   view是视图，port支持，端口
+	<meta name="format-detection" content="telephone=yes, email=yes" /> 自动识别电话号码和邮箱 format 格式,detection 检测                                                                      禁止自动识别电话号码和邮箱把yes改成no就行。
+
+三、移动端viewport 
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		device-width  设备宽度
+		initial-scale 默认的缩放比例
+		minimum-scale 最小的缩放比例
+		maximum-scale 最大的缩放比例
+		user-scalable=no 是否允许用户缩放
+
+四、个别机型问题:
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+		显示苹果的工具栏
+                              apple-mobile苹果手机
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+		苹果状态栏变成黑色

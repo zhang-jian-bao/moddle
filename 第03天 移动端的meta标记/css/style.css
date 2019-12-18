@@ -1,0 +1,18 @@
+body, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+#hxc-banner {
+  height: 200px; }
+  #hxc-banner .swiper-slide {
+    font-size: 72px;
+    text-align: center;
+    height: 200px;
+    background: #007AFF; }
+    #hxc-banner .swiper-slide:nth-child(2) {
+      background: #726129; }
+    #hxc-banner .swiper-slide:nth-child(3) {
+      background: #c00; }
+
+/*# sourceMappingURL=style.css.map */

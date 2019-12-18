@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+
+	<body>
+		<table border="1" cellspacing="0" cellpadding="10" width="800">
+			
+		</table>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			$.get("json/bbb.json",{},function(ret){
+				var str="";
+				for(var i in ret){
+					str+=`<tr>
+								<td>${ret[i].uname}</td>
+								<td>${ret[i].usex}</td>
+								<td>${ret[i].uage}</td>
+						 </tr>`;
+					$("table").html(str);	 
+						
+				}
+			},"json")
+		})
+	</script>
+</html>

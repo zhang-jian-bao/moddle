@@ -1,0 +1,175 @@
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+body{
+    font-size: 0.24rem;
+    line-height: 0.4rem;
+}
+.top{
+    img{
+        display: block;
+        width: 100%;
+        height: 0.35rem;
+    }
+}
+.header{
+    height: 0.7rem;
+    font-size: 0.2rem;
+    text-align: center;
+    background: #f6f6f6;
+    line-height: 0.7rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    div{
+        width: 4.6rem;
+        overflow: hidden;
+        ul{
+            width: 8rem;
+            display: flex;
+            li{
+                width: 0.8rem;
+                text-align: center;
+                &.active{
+                    color: #12b0e4;
+                    background: url(../img/navbg.jpg) no-repeat center bottom;
+                }
+            }
+        }
+        
+    }
+    img{
+        width: 0.7rem;
+        height: 0.37rem;
+        &:nth-child(3){
+            width: 0.29rem;
+            height: 0.29rem;
+        }
+    }
+}
+html{ height: 100%;}
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    height: 0;
+    flex-grow: 1;
+    overflow: hidden;
+    .content{
+        min-height: 101%;
+        //background: #FFFF00;
+        padding: 0.25rem;
+    }
+}
+#page{
+    height: 100%;
+}
+#hxc-banner{
+    height: 2.42rem;
+    img{
+        width: 5.9rem;
+        height: 2.42rem;
+    }
+}
+
+.hxc-news{
+    padding-top: 0.3rem;
+    ul{
+        border-top: solid 1px #ccc;
+        padding-top: 0.3rem;
+        li{
+            display: flex;
+            justify-content: space-between;
+            padding: 0.2rem 0;
+            border-bottom: solid 1px #eeea;
+            img{
+                width: 1.91rem;
+                height: 1.16rem;
+            }
+            div{
+                width: 3.80rem;
+                h3{
+                    font-size: 0.24rem;
+                    height: 0.92rem;
+                    line-height: 0.46rem;
+                    overflow: hidden;
+                }
+                p{
+                     font-size: 0.12rem;
+                     line-height: 0.25rem;
+                     display: flex;
+                     justify-content: space-between;
+                    span{
+                        display: block;
+                        width: 0.9rem;
+                        height: 0.25rem;
+                       
+                        border:solid 1px #ccc;
+                        border-radius: 0.1rem;
+                        text-align: center;
+                    }
+                    i{
+                        display: block;
+                        font-style: normal;
+                        width: 0.8rem;
+                        
+                    }
+                    b{
+                        display: block;
+                        background: url(../img/ppxw_13.jpg) no-repeat 0;
+                        background-size:0.2rem 0.19rem ;
+                        padding-left: 0.3rem;
+                        width: 0.6rem;
+                    }
+                    a{
+                        display: block;
+                        border:solid 1px #0062CC;
+                        color: #0062CC;
+                        border-radius: 0.5rem;
+                        padding: 0 0.2rem;
+                        text-decoration: none;
+                       
+                    }
+                }
+            }
+            
+        }
+        
+        
+    }
+}
+
+.footer{
+    
+      height: 0.7rem;
+    font-size: 0.2rem;
+    text-align: center;
+    background: #f6f6f6;
+    ul{
+        display: flex;
+        li{
+            width: 20%;
+            img{
+                width: 0.34rem;
+                height: 0.33rem;
+                display: block;
+                margin: 0 auto;
+            }
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: #222;
+            }
+            &.active{
+                a{
+                    color: #0062CC;
+                }
+            }
+        }
+    }
+}

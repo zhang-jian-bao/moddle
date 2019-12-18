@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			.hxc-box{
+				height: 100%;
+			}
+			.hxc-content{
+				width: 200%;
+				min-height: 301%;
+				background: #ff0000;
+				color: #000;
+			}
+		</style>
+	</head>
+	<script src="js/iscroll-probe.js" type="text/javascript" charset="utf-8"></script>
+	<body>
+		<div class="hxc-box">
+			<div class="hxc-content">
+				
+				滚动内容区域
+				
+			</div>
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+document.addEventListener("touchmove",function(ev){
+	ev.preventDefault();
+},{passive:false})
+	var hxcIScroll=new IScroll(".hxc-box",{
+		scrollX:true,
+		scrollbars:true,
+		mouseWheel:true
+	})
+	hxcIScroll.onscroll=function(){
+		alert("好好")
+	}
+</script>

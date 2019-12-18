@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<select id="sheng">
+			
+		</select>
+		<select id="city">
+			
+		</select>
+	</body>
+	<script type="text/javascript">
+		$.ajax({
+			type:"get",
+			url:"data/sdata.json",
+			async:true,
+			success:function(data){
+				var str="<option>请选择省份</option>";
+				for(var i in data){
+					str+=`<option>${data[i].sname}</option>`
+				}
+				$("#sheng").html(str);
+				$("#sheng").change(function(){
+					var k=$(this)[0].selectedIndex-1;
+					var citydata=data[k].info;
+					var str="<option>请选择城市</option>";
+					for(var i in citydata){
+						str+=`<option>${citydata[i]}</option>`;
+					}
+					$("#city").html(str);
+				})
+						
+				
+				
+			}
+		});
+	
+		
+	</script>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/qimo.css" />
+		<script src='js/iscroll-probe.js'></script>
+		<script src='js/jquery-3.4.1.js'></script>
+		<script src='js/swiper-3.4.2.min.js'></script>
+		<script src='js/qimo.js'></script>
+	</head>
+	<body>
+	<!--头部布局-->
+		<div class="zjb-heard">
+			<img src="img/qq%20(1).jpg" alt="">
+			<div>
+				<img class='as' src="img/qq%20(3).jpg" alt="">
+				<input type="text" placeholder="大家都在搜换季必备清单">
+				<img src="img/qq%20(2).jpg" alt="">
+			</div>
+		</div>
+	<!--内容滚动布局-->
+	<div class="sl">上拉加载</div>
+		<div class="zjb-box">
+			<div class="zjb-con">
+				<!--滚动开始-->
+                <!--轮播图布局-->
+				<div class="swiper-container zjb-banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="img/qq%20(5).jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/qq%20(5).jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/qq%20(5).jpg" alt=""></div>
+						<div class="swiper-slide"><img src="img/qq%20(5).jpg" alt=""></div>
+					</div>
+				</div>
+				<div class="zjb-tu">
+					<img src="img/qq%20(6).jpg" alt="">
+				</div>
+				<!--导航条布局-->
+				<div class="zjb-nav">
+					<ul>
+						<!--<li class="active">推荐</li>-->
+						<!--<li>内衣</li>-->
+						<!--<li>个护</li>-->
+						<!--<li>保健</li>-->
+						<!--<li>护肤</li>-->
+						<!--<li>彩妆</li>-->
+					</ul>
+				</div>
+				<!--内容布局-->
+			<div class="swiper-container aa">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="zjb-content">
+							<ul>
+								<!--<li>-->
+								<!--<img src="img/qq%20(9).jpg" alt="">-->
+								<!--<div>-->
+								<!--<h4>韩国·爆款到货</h4>-->
+								<!--<i>NATUREKIND【*优惠中*】LED毛孔清洁仪+补水泡沫化妆</i>-->
+								<!--<p>￥639 <span>立减30</span></p>-->
+								<!--</div>-->
+								<!--</li>-->
+							</ul>
+						</div>
+					</div>
+					<div class="swiper-slide">2222</div>
+					<div class="swiper-slide">3333</div>
+					<div class="swiper-slide">4444</div>
+					<div class="swiper-slide">555</div>
+					<div class="swiper-slide">6666</div>
+				</div>
+			</div>
+				<!--滚动结束-->
+			</div>
+		</div>
+    <!--下拉加载布局-->
+	<div class="xl">下拉加载</div>
+    <!--页脚布局-->
+		<div class="zjb-foot">
+			<ul>
+				<li>首页</li>
+				<li class="shop">商城</li>
+				<li><img src="img/qq%20(8).jpg" alt=""></li>
+				<li>消息</li>
+				<li>我</li>
+			</ul>
+		</div>
+    <!--点击左侧图片，出现导航条-->
+   <div class="tiao">
+       <div class="tt">
+           <dl>
+               <dt>更多</dt>
+               <dd>发现好友</dd>
+               <dd>我的草稿</dd>
+               <dd>购物车</dd>
+               <dd>订单</dd>
+               <dd>卡卷</dd>
+               <dd>心愿单</dd>
+               <dd>免流量</dd>
+               <dd>客服</dd>
+               <dd>扫一扫</dd>
+           </dl>
+       </div>
+   </div>
+	</body>
+</html>
+<script>
+    //点击左侧图片，出现导航条
+    $('.as').click(function () {
+//       //不能让导航条隐藏，否则没有动画效果
+        $('.tiao').animate({left:0+"rem"},1000);
+    });
+    $(".tiao").click(function () {
+        $(this).animate({left:-6.8+"rem"},1000);
+    });
+    $('.tt').click(function (e) {
+        e.stopPropagation();//阻止冒泡事件
+    })
+
+//	$(".as").click(function () {
+//	.tiao用不了transtion动画，需要有hover是才能用
+//		$(".tiao:hover").css({width:"100%",transtion:"all 3s"});
+//		$('.tt').css({display:"block"});
+//	})
+
+
+
+
+
+    //阻止浏览器自带的touchmove事件
+	document.addEventListener('touchmove',function(event){
+		event.preventDefault();
+	},{passive:false});
+	//内容滚动布局
+	var zjbSc=new IScroll('.zjb-box',{
+		probeType:2
+	})
+	//轮播图布局
+	var zjbBanner=new Swiper(".zjb-banner",{
+		autoplay:1500
+	})
+	//渲染导航加点击导航切换
+	$.get("json/tsconfig.json",{}, function (ret) {
+		var zjbNav=ret.nav;
+		var str='';
+		for(var  i in zjbNav){
+
+			if(i==0){
+				str+=`<li class="active">${zjbNav[i]}</li>`;
+			}else{
+				str+=`<li>${zjbNav[i]}</li>`;
+			}
+		}
+		$(".zjb-nav>ul").html(str);
+        //点击导航切换内容布局
+		$(".zjb-nav>ul>li").click(function () {
+//			alert("pp")
+			$(this).addClass('active').siblings().removeClass('active');
+			var s=$(this).index();
+			aa.slideTo(s)
+		})
+		var aa=new Swiper('.aa',{
+
+			onSlideChangeEnd: function (swiper) {
+				var k=swiper.activeIndex;
+				$('.zjb-nav>ul>li').eq(k).addClass('active').siblings().removeClass('active');
+
+			}
+		});
+		zjbSc.refresh();
+        //渲染内容布局
+		var con=ret.con;
+		var str1='';
+		for(var i=0;i<3;i++){
+			str1+=`	<li>
+							<img src="${con[i].img}" alt="">
+						<div>
+							<h4>${con[i].a}</h4>
+							<i>${con[i].b}</i>
+							<p>${con[i].c}<span>${con[i].d}</span></p>
+						</div>
+						</li>`
+		}
+		$(".zjb-content>ul").html(str1);
+		zjbSc.refresh();
+	},"json");
+    //上拉加载，下拉刷新添加布局
+	var s=document.querySelector('.sl');
+	var x=document.querySelector(".xl");
+	zjbSc.on("scroll", function () {
+		if(zjbSc.startY>20){
+			s.style.display='block';
+		}
+		if(zjbSc.startY<zjbSc.maxScrollY-20){
+			x.style.display='block';
+		}
+	});
+    //上拉加载，下拉刷新添加布局
+    var e=3;
+	zjbSc.on('scrollEnd', function () {
+		if(zjbSc.startY>20){
+			s.innerHTML="加载中。。"
+			setTimeout(function () {
+				var str='';
+				str+=`<li>111</li>`;
+				$('.zjb-content>ul').prepend(str);
+				s.style.display='none';
+			},2000)
+		}
+
+		if(zjbSc.startY<zjbSc.maxScrollY-20){
+			x.innerHTML="加载中。。。";
+			setTimeout(function () {
+				$.get("json/tsconfig.json",{}, function (ret) {
+					var con=ret.con;
+					var str1='';
+//					for(var i in con){
+						str1+=`	<li>
+							<img src="${con[e].img}" alt="">
+						<div>
+							<h4>${con[e].a}</h4>
+							<i>${con[e].b}</i>
+							<p>${con[e].c}<span>${con[e].d}</span></p>
+						</div>
+						</li>`
+//					}
+					e++;
+					$(".zjb-content>ul").append(str1);
+					zjbSc.refresh();
+				},"json")
+				x.style.display='none';
+			},2000);
+		}
+	})
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="sheng">
+		</select>
+		<select id="city">
+		</select>
+	</body>
+	<script type="text/javascript">
+		var data=[
+					{"sname":"北京","city":["朝阳区","海淀区","西城区","丰台区"]}
+				   ,{"sname":"河南省","city":["洛阳","信阳","南阳","安阳","濮阳"]}
+				   ,{"sname":"山东省","city":["菏泽","青岛","烟台","济南","济宁"]}
+				 ]
+		//渲染省份
+		var str="<option>请选择省份</option>";
+		for(var i in data){
+			str+=`<option>${data[i].sname}</option>`;
+		}
+		document.getElementById("sheng").innerHTML=str;
+		
+		//选择省份，获取索引
+		document.getElementById("sheng").onchange=function(){
+			var i=this.selectedIndex-1; //获取被选省份的索引值
+			var city=data[i].city;
+			var str="<option>请选择城市</option>";
+			for(var i in city){
+				str+=`<option>${city[i]}</option>`;
+			}
+			document.getElementById("city").innerHTML=str;
+			
+		}
+	</script>
+</html>
